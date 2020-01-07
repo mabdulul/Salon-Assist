@@ -23,8 +23,11 @@ const HairType = ({ history }) => {
 		<>
 			<section className="container">
 				<div className="row">
-					<div className="col-sm-12 col-md-12 col-lg-12">
-						<form className="QuizForm" onSubmit={handleSubmit(onSubmit)}>
+					<form
+						className="QuizForm col-sm-12 col-md-8 col-lg-8"
+						onSubmit={handleSubmit(onSubmit)}
+					>
+						<div className="col-sm-12 col-md-12 col-lg-12">
 							<div className="QuizForm__label">
 								<label>
 									<input
@@ -63,13 +66,14 @@ const HairType = ({ history }) => {
 									</div>
 									<p>curly</p>
 								</label>
-								<button className="QuizForm__btn" type="submit">
-									Next
-								</button>
 							</div>
-						</form>
-					</div>
-					<div class="col-sm-12 col-md-12 col-lg-12"></div>
+						</div>
+						<div class="QuizForm__btnBlock QuizForm__btn--single col-sm-12 col-md-12 col-lg-12">
+							<button className="QuizForm__btn " type="submit">
+								Next →
+							</button>
+						</div>
+					</form>
 				</div>
 			</section>
 		</>

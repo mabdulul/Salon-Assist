@@ -37,7 +37,7 @@ const Hairstructure = ({ history }) => {
 										ref={register}
 									/>
 									<div className="QuizForm-bgBlock">
-										<img src={fine} width="145px" height="145px" alt="fine" />
+										<img src={fine} className="img-fluid" alt="fine" />
 									</div>
 
 									<p>Fine</p>
@@ -48,14 +48,10 @@ const Hairstructure = ({ history }) => {
 										name="hairstructure"
 										value="medium"
 										ref={register}
+										className="img-fluid"
 									/>
 									<div className="QuizForm-bgBlock">
-										<img
-											src={medium}
-											width="145px"
-											height="145px"
-											alt="medium"
-										/>
+										<img src={medium} alt="medium" className="img-fluid" />
 									</div>
 
 									<p>Medium</p>
@@ -66,14 +62,10 @@ const Hairstructure = ({ history }) => {
 										name="hairstructure"
 										value="coarse"
 										ref={register}
+										className="img-fluid"
 									/>
 									<div className="QuizForm-bgBlock">
-										<img
-											src={course}
-											width="145px"
-											height="145px"
-											alt="coarse"
-										/>
+										<img src={course} className="img-fluid" alt="coarse" />
 									</div>
 
 									<p>coarse</p>
@@ -82,10 +74,10 @@ const Hairstructure = ({ history }) => {
 						</div>
 						<div class="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
 							<button className="QuizForm__btn" onClick={BacktoHairType}>
-								Back
+								← Back
 							</button>
 							<button className="QuizForm__btn" type="submit">
-								Next
+								Next →
 							</button>
 						</div>
 					</form>
