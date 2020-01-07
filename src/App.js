@@ -5,6 +5,10 @@ import Login from "./components/Login";
 import signup from "./components/signup";
 import LogOut from "./components/LogOut";
 
+// Quiz Components
+import HairType from "./components/Quiz_componets/hairtype";
+import HairStructure from "./components/Quiz_componets/hairstructure";
+
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
 
@@ -12,54 +16,55 @@ import { SessionContext } from "./context/SessionContext";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
-  static contextType = SessionContext;
+	static contextType = SessionContext;
 
-  render() {
-    const { is_logged_in } = this.context;
-    console.log(is_logged_in);
+	render() {
+		const { is_logged_in } = this.context;
+		console.log(is_logged_in);
 
-    return (
-      <div className="App">
-        <Router>
-          <nav>
-            <ul>
-              <li>
-                <p className="nav-left">About Us</p>
-              </li>
-              {is_logged_in ? (
-                <>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <LogOut />
-                </>
-              ) : (
-                <>
-                  <li>
-                    <Link to="/signup">Sign Up</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Members Login</Link>
-                  </li>
-                </>
-              )}
-            </ul>
-            <div className="logo">
-              <h1>monroe's salon</h1>
-            </div>
-            <ul className="nav-two">
-              <li className="nav-right">
-                <p className="">Book a Consolation</p>
-              </li>
-            </ul>
-          </nav>
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={signup} />
-        
-        </Router>
-      </div>
-    );
-  }
+		return (
+			<div className="App">
+				<Router>
+					<nav>
+						<ul>
+							<li>
+								<p className="nav-left">About Us</p>
+							</li>
+							{is_logged_in ? (
+								<>
+									<li>
+										<Link to="/">Home</Link>
+									</li>
+									<LogOut />
+								</>
+							) : (
+								<>
+									<li>
+										<Link to="/signup">Sign Up</Link>
+									</li>
+									<li>
+										<Link to="/login">Members Login</Link>
+									</li>
+								</>
+							)}
+						</ul>
+						<div className="logo">
+							<h1>monroe's salon</h1>
+						</div>
+						<ul className="nav-two">
+							<li className="nav-right">
+								<p className="">Book a Consolation</p>
+							</li>
+						</ul>
+					</nav>
+					<Route path="/login" exact component={Login} />
+					<Route path="/signup" exact component={signup} />
+					<Route path="/HairQuiz" exact component={HairType} />
+					<Route path="/HairStruture" exact component={HairStructure} />
+				</Router>
+			</div>
+		);
+	}
 }
 
 export default App;
