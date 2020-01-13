@@ -28,6 +28,18 @@ const HairType = ({ history }) => {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className="col-sm-12 col-md-12 col-lg-12">
+							<div className="QuizForm-progressbar ">
+								<span className="QuizForm-start">START</span>
+								<span className="QuizForm_breadcrumbs is-active "></span>
+								<span className="QuizForm_breadcrumbs "></span>
+								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs-line"></span>
+								<span className="QuizForm_end">END</span>
+							</div>
+							<div className="QuizForm-header">
+								<h2>What is your hair type?</h2>
+							</div>
 							<div className="QuizForm__label">
 								<label>
 									<input

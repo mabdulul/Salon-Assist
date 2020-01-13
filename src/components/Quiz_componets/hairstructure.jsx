@@ -28,6 +28,18 @@ const Hairstructure = ({ history }) => {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className="col-sm-12 col-md-12 col-lg-12">
+							<div className="QuizForm-progressbar ">
+								<span className="QuizForm-start">START</span>
+								<span className="QuizForm_breadcrumbs "></span>
+								<span className="QuizForm_breadcrumbs is-active"></span>
+								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs-line"></span>
+								<span className="QuizForm_end">END</span>
+							</div>
+							<div className="QuizForm-header">
+								<h2>Your hair structure is?</h2>
+							</div>
 							<div className="QuizForm__label">
 								<label>
 									<input
@@ -67,7 +79,6 @@ const Hairstructure = ({ history }) => {
 									<div className="QuizForm-bgBlock">
 										<img src={course} className="img-fluid" alt="coarse" />
 									</div>
-
 									<p>coarse</p>
 								</label>
 							</div>
