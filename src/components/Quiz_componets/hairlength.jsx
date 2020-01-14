@@ -1,27 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-//import { Redirect } from "react-router-dom";
-
-// Import image
-import fine from "../../Stylesheets/Quiz/Images/fine.svg";
-import medium from "../../Stylesheets/Quiz/Images/medium.svg";
-import course from "../../Stylesheets/Quiz/Images/course.svg";
 
 //StyleSheet
 import "../../Stylesheets/Quiz/quizStyles.css";
 
-const Hairstructure = ({ history }) => {
+const Hairlength = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data, e) => {
 		e.preventDefault();
 		console.log(data);
+		history.push("/coloredhair");
 	};
-	const BacktoHairType = () => {
-		history.push("/hairQuiz");
+	const BacktoHairStructure = () => {
+		history.push("/hairStruture");
 	};
-	const NexttoHairType = () => {
-		history.push("hairlength");
-	};
+	// const NexttoHairType = () => {
+
+	// };
+
 	return (
 		<>
 			<div className="container">
@@ -34,67 +30,70 @@ const Hairstructure = ({ history }) => {
 							<div className="QuizForm-progressbar ">
 								<span className="QuizForm-start">START</span>
 								<span className="QuizForm_breadcrumbs "></span>
+								<span className="QuizForm_breadcrumbs "></span>
 								<span className="QuizForm_breadcrumbs is-active"></span>
-								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs-line"></span>
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
-								<h2>Your hair structure is?</h2>
+								<h2>How long is your hair?</h2>
 							</div>
 							<div className="QuizForm__label">
 								<label>
 									<input
 										type="radio"
-										name="hairstructure"
-										value="fine"
+										name="hairslength"
+										value="pixie"
 										ref={register}
 									/>
 									<div className="QuizForm-bgBlock">
-										<img src={fine} className="img-fluid" alt="fine" />
+										<p>Pixie</p>
 									</div>
-
-									<p>Fine</p>
 								</label>
 								<label>
 									<input
 										type="radio"
-										name="hairstructure"
-										value="medium"
+										name="hairslength"
+										value="short"
 										ref={register}
 										className="img-fluid"
 									/>
 									<div className="QuizForm-bgBlock">
-										<img src={medium} alt="medium" className="img-fluid" />
+										<p>Short</p>
 									</div>
-
-									<p>Medium</p>
 								</label>
 								<label>
 									<input
 										type="radio"
-										name="hairstructure"
-										value="coarse"
+										name="hairslength"
+										value="shoulderlength "
 										ref={register}
 										className="img-fluid"
 									/>
 									<div className="QuizForm-bgBlock">
-										<img src={course} className="img-fluid" alt="coarse" />
+										<p>Sholder Length</p>
 									</div>
-									<p>coarse</p>
+								</label>
+								<label>
+									<input
+										type="radio"
+										name="hairslength"
+										value="long"
+										ref={register}
+										className="img-fluid"
+									/>
+									<div className="QuizForm-bgBlock">
+										<p>Long</p>
+									</div>
 								</label>
 							</div>
 						</div>
 						<div class="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
-							<button className="QuizForm__btn" onClick={BacktoHairType}>
+							<button className="QuizForm__btn" onClick={BacktoHairStructure}>
 								← Back
 							</button>
-							<button
-								className="QuizForm__btn"
-								type="submit"
-								onClick={NexttoHairType}
-							>
+							<button className="QuizForm__btn" type="submit">
 								Next →
 							</button>
 						</div>
@@ -105,4 +104,4 @@ const Hairstructure = ({ history }) => {
 	);
 };
 
-export default Hairstructure;
+export default Hairlength;

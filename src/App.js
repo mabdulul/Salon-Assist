@@ -8,6 +8,8 @@ import LogOut from "./components/LogOut";
 // Quiz Components
 import HairType from "./components/Quiz_componets/hairtype";
 import HairStructure from "./components/Quiz_componets/hairstructure";
+import HairLength from "./components/Quiz_componets/hairlength";
+import Coloredhair from "./components/Quiz_componets/coloredHair";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -59,8 +61,10 @@ class App extends Component {
 					</nav>
 					<Route path="/login" exact component={Login} />
 					<Route path="/signup" exact component={signup} />
-					<Route path="/HairQuiz" exact component={HairType} />
-					<Route path="/HairStruture" exact component={HairStructure} />
+					<Route path="/hairQuiz" exact component={HairType} />
+					<Route path="/hairStruture" exact component={HairStructure} />
+					<Route path="/hairLength" exact component={HairLength} />
+					<Route path="/coloredhair" exact component={Coloredhair} />
 				</Router>
 			</div>
 		);

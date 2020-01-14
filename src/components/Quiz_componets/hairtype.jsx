@@ -17,7 +17,7 @@ const HairType = ({ history }) => {
 	const onSubmit = (data, e) => {
 		e.preventDefault();
 		console.log(data);
-		history.push("/HairStruture");
+		history.push("/hairStruture");
 	};
 	return (
 		<>
