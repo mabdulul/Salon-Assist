@@ -14,6 +14,7 @@ const Coloredhair = ({ history }) => {
 		history.push("/hairlength");
 	};
 	const coloredhair = watch("coloredhair");
+	console.log(coloredhair);
 	return (
 		<>
 			<div className="container">
@@ -62,34 +63,141 @@ const Coloredhair = ({ history }) => {
 							</div>
 							{/* Ternary */}
 							{coloredhair === "No" ? (
-								<div className="QuizForm__label QuizForm--TyOfColor ">
-									<div className="QuizForm-header">
-										<h2>Was it BoxDye or at Salon ?</h2>
+								<>
+									<div className="QuizForm__label QuizForm--TyOfColor ">
+										<div className="QuizForm-header">
+											<h2>Was it BoxDye or at Salon ?</h2>
+										</div>
+										<label>
+											<input
+												type="radio"
+												name="coloredhairType"
+												value="BoxDye"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>BoxDye</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="radio"
+												name="coloredhairType"
+												value="Salon"
+												ref={register}
+												className="img-fluid"
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>Salon</p>
+											</div>
+										</label>
 									</div>
-									<label>
-										<input
-											type="radio"
-											name="coloredhairType"
-											value="BoxDye"
-											ref={register}
-										/>
-										<div className="QuizForm-bgBlock">
-											<p>BoxDye</p>
+
+									<div className="QuizForm__label QuizForm--TyOfColor ">
+										<div className="QuizForm-header">
+											<h2>What color was it ? You can chose more than one </h2>
 										</div>
-									</label>
-									<label>
-										<input
-											type="radio"
-											name="coloredhairType"
-											value="Salon"
-											ref={register}
-											className="img-fluid"
-										/>
-										<div className="QuizForm-bgBlock">
-											<p>Salon</p>
-										</div>
-									</label>
-								</div>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="black"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>black</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="red"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>red</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="brown"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>brown</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="blonde"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>blonde</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="blue"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>blue</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="green"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>green</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="orange"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>orange</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="pink"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>pick</p>
+											</div>
+										</label>
+										<label>
+											<input
+												type="checkbox"
+												name="colorOfhair"
+												value="purple"
+												ref={register}
+											/>
+											<div className="QuizForm-bgBlock">
+												<p>purple</p>
+											</div>
+										</label>
+									</div>
+								</>
 							) : (
 								""
 							)}

@@ -10,6 +10,7 @@ import HairType from "./components/Quiz_componets/hairtype";
 import HairStructure from "./components/Quiz_componets/hairstructure";
 import HairLength from "./components/Quiz_componets/hairlength";
 import Coloredhair from "./components/Quiz_componets/coloredHair";
+import UploadUserPics from "./components/Quiz_componets/uploadPics";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -65,6 +66,7 @@ class App extends Component {
 					<Route path="/hairStruture" exact component={HairStructure} />
 					<Route path="/hairLength" exact component={HairLength} />
 					<Route path="/coloredhair" exact component={Coloredhair} />
+					<Route path="/uploadUserpics" exact component={UploadUserPics} />
 				</Router>
 			</div>
 		);
