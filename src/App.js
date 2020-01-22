@@ -12,6 +12,8 @@ import HairLength from "./components/Quiz_componets/hairlength";
 import Coloredhair from "./components/Quiz_componets/coloredHair";
 import UploadUserPics from "./components/Quiz_componets/uploadPics";
 
+import logo from "./images/logo5.png";
+
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
 
@@ -28,7 +30,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Router>
-					<nav>
+					<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
 						<ul>
 							<li>
 								<p className="nav-left">About Us</p>
@@ -52,7 +54,7 @@ class App extends Component {
 							)}
 						</ul>
 						<div className="logo">
-							<h1>monroe's salon</h1>
+							<img className="logo-dem" src={logo} alt="monroe's salon logo" />
 						</div>
 						<ul className="nav-two">
 							<li className="nav-right">

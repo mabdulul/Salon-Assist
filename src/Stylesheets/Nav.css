@@ -32,6 +32,12 @@ nav ul li a {
     text-align: center;
 }
 
+.logo-dem {
+    width: 150px;
+    height: 100%;
+}
+
+
 .nav-right {
     border: 2px solid black;
     padding: 10px;

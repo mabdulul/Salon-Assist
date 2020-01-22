@@ -89,7 +89,7 @@ const Hairlength = ({ history }) => {
 								</label>
 							</div>
 						</div>
-						<div class="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
+						<div className="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
 							<button className="QuizForm__btn" onClick={BacktoHairStructure}>
 								← Back
 							</button>
