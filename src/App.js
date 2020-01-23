@@ -30,38 +30,44 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Router>
-					<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-						<ul>
-							<li>
-								<p className="nav-left">About Us</p>
-							</li>
-							{is_logged_in ? (
-								<>
-									<li>
-										<Link to="/">Home</Link>
-									</li>
-									<LogOut />
-								</>
-							) : (
-								<>
-									<li>
-										<Link to="/signup">Sign Up</Link>
-									</li>
-									<li>
-										<Link to="/login">Members Login</Link>
-									</li>
-								</>
-							)}
-						</ul>
-						<div className="logo">
-							<h1>monroe's salon</h1>
-						</div>
+					<nav className="navbar navbar-expand-lg navbar-light bg-light">
+						<Link className="navbar-brand">monroe's salon</Link>
+						<button
+							className="navbar-toggler"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNavAltMarkup"
+							aria-controls="navbarNavAltMarkup"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span className="navbar-toggler-icon"></span>
+						</button>
+						<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+							<div class="navbar-nav">
+								<Link className="nav-item nav-link ">About Us</Link>
+								{is_logged_in ? (
+									<>
+										<Link className="nav-item nav-link " to="/">
+											Home
+										</Link>
 
-						<ul className="nav-two">
-							<li className="nav-right">
-								<p className="">Book a Consolation</p>
-							</li>
-						</ul>
+										<LogOut />
+									</>
+								) : (
+									<>
+										<Link className="nav-item nav-link " to="/signup">
+											Sign Up
+										</Link>
+
+										<Link className="nav-item nav-link " to="/login">
+											Members Login
+										</Link>
+									</>
+								)}
+								<Link className="nav-item nav-link ">Book a Consolation</Link>
+							</div>
+						</div>
 					</nav>
 					<Route path="/login" exact component={Login} />
 					<Route path="/signup" exact component={signup} />

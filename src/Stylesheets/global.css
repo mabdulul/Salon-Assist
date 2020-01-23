@@ -8,6 +8,11 @@
     box-sizing: inherit;
 }
 
+*:focus {
+    outline: none !important;
+}
+
+
 html {}
 
 body {
@@ -19,7 +24,7 @@ body {
     overflow-x: hidden;
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    background-color: #F8F8F8;
+    background-color: #FAFAFA;
 
 }
 

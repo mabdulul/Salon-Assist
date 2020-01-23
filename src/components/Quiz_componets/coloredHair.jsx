@@ -44,7 +44,7 @@ const Coloredhair = ({ history }) => {
 										value="Yes"
 										ref={register}
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>Yes</p>
 									</div>
 								</label>
@@ -56,7 +56,7 @@ const Coloredhair = ({ history }) => {
 										ref={register}
 										className="img-fluid"
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>No</p>
 									</div>
 								</label>
@@ -64,9 +64,9 @@ const Coloredhair = ({ history }) => {
 							{/* Ternary */}
 							{coloredhair === "No" ? (
 								<>
-									<div className="QuizForm__label QuizForm--TyOfColor ">
+									<div className="QuizForm__label QuizForm--TyOfColor tempfix">
 										<div className="QuizForm-header">
-											<h2>Was it BoxDye or at Salon ?</h2>
+											<h4>Was it BoxDye or at Salon ?</h4>
 										</div>
 										<label>
 											<input
@@ -75,7 +75,7 @@ const Coloredhair = ({ history }) => {
 												value="BoxDye"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>BoxDye</p>
 											</div>
 										</label>
@@ -87,7 +87,7 @@ const Coloredhair = ({ history }) => {
 												ref={register}
 												className="img-fluid"
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>Salon</p>
 											</div>
 										</label>
@@ -95,7 +95,7 @@ const Coloredhair = ({ history }) => {
 
 									<div className="QuizForm__label QuizForm--TyOfColor ">
 										<div className="QuizForm-header">
-											<h2>What color was it ? You can chose more than one </h2>
+											<h4>What color was it ? You can chose more than one </h4>
 										</div>
 										<label>
 											<input
@@ -104,7 +104,7 @@ const Coloredhair = ({ history }) => {
 												value="black"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>black</p>
 											</div>
 										</label>
@@ -115,7 +115,7 @@ const Coloredhair = ({ history }) => {
 												value="red"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>red</p>
 											</div>
 										</label>
@@ -126,7 +126,7 @@ const Coloredhair = ({ history }) => {
 												value="brown"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>brown</p>
 											</div>
 										</label>
@@ -137,7 +137,7 @@ const Coloredhair = ({ history }) => {
 												value="blonde"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>blonde</p>
 											</div>
 										</label>
@@ -148,7 +148,7 @@ const Coloredhair = ({ history }) => {
 												value="blue"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>blue</p>
 											</div>
 										</label>
@@ -159,7 +159,7 @@ const Coloredhair = ({ history }) => {
 												value="green"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>green</p>
 											</div>
 										</label>
@@ -170,7 +170,7 @@ const Coloredhair = ({ history }) => {
 												value="orange"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>orange</p>
 											</div>
 										</label>
@@ -181,8 +181,8 @@ const Coloredhair = ({ history }) => {
 												value="pink"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
-												<p>pick</p>
+											<div className="QuizForm-bgBlock__selecttext">
+												<p>pink</p>
 											</div>
 										</label>
 										<label>
@@ -192,7 +192,7 @@ const Coloredhair = ({ history }) => {
 												value="purple"
 												ref={register}
 											/>
-											<div className="QuizForm-bgBlock">
+											<div className="QuizForm-bgBlock__selecttext">
 												<p>purple</p>
 											</div>
 										</label>

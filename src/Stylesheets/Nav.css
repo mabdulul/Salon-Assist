@@ -1,10 +1,9 @@
 h1 {
-    font-family: 'Baskervville', serif;
-    font-size: 2rem;
+	font-family: "Baskervville", serif;
+	font-size: 2rem;
 }
 
-
-nav {
+/* nav {
     padding-top: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -41,4 +40,4 @@ nav ul li a {
 .nav-right {
     border: 2px solid black;
     padding: 10px;
-}
+} */

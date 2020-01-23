@@ -47,7 +47,7 @@ const Hairlength = ({ history }) => {
 										value="pixie"
 										ref={register}
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>Pixie</p>
 									</div>
 								</label>
@@ -59,7 +59,7 @@ const Hairlength = ({ history }) => {
 										ref={register}
 										className="img-fluid"
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>Short</p>
 									</div>
 								</label>
@@ -71,7 +71,7 @@ const Hairlength = ({ history }) => {
 										ref={register}
 										className="img-fluid"
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>Sholder Length</p>
 									</div>
 								</label>
@@ -83,7 +83,7 @@ const Hairlength = ({ history }) => {
 										ref={register}
 										className="img-fluid"
 									/>
-									<div className="QuizForm-bgBlock">
+									<div className="QuizForm-bgBlock__selecttext">
 										<p>Long</p>
 									</div>
 								</label>
