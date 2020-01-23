@@ -37,7 +37,7 @@ const Hairlength = ({ history }) => {
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
-								<h2>How long is your hair?</h2>
+								<h4>How long is your hair?</h4>
 							</div>
 							<div className="QuizForm__label">
 								<label>

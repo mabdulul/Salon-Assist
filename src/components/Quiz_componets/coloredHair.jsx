@@ -34,7 +34,7 @@ const Coloredhair = ({ history }) => {
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
-								<h2>Do you have virgin hair ?</h2>
+								<h4>Do you have virgin hair ?</h4>
 							</div>
 							<div className="QuizForm__label">
 								<label>
@@ -66,7 +66,7 @@ const Coloredhair = ({ history }) => {
 								<>
 									<div className="QuizForm__label QuizForm--TyOfColor tempfix">
 										<div className="QuizForm-header">
-											<h4>Was it BoxDye or at Salon ?</h4>
+											<h4>Was it box dye or done at a Salon ?</h4>
 										</div>
 										<label>
 											<input
@@ -76,7 +76,7 @@ const Coloredhair = ({ history }) => {
 												ref={register}
 											/>
 											<div className="QuizForm-bgBlock__selecttext">
-												<p>BoxDye</p>
+												<p>box dye</p>
 											</div>
 										</label>
 										<label>
@@ -95,8 +95,14 @@ const Coloredhair = ({ history }) => {
 
 									<div className="QuizForm__label QuizForm--TyOfColor ">
 										<div className="QuizForm-header">
-											<h4>What color was it ? You can chose more than one </h4>
+											<p class="tempfix">
+												{" "}
+												<h4>What color was it ?</h4> You can chose more than one
+												👌
+											</p>
+											<div class="tempfix-block"></div>
 										</div>
+
 										<label>
 											<input
 												type="checkbox"

@@ -41,7 +41,7 @@ const Hairstructure = ({ history }) => {
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
-								<h2>Your hair structure is?</h2>
+								<h4>Your hair structure is?</h4>
 							</div>
 							<div className="QuizForm__label">
 								<label>

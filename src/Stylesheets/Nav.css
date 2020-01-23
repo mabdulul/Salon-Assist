@@ -1,6 +1,9 @@
-h1 {
-	font-family: "Baskervville", serif;
-	font-size: 2rem;
+nav {
+    font-family: 'Cardo', serif;
+}
+
+.nav-link {
+    font-family: 'Carrois Gothic SC', sans-serif;
 }
 
 /* nav {
