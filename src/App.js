@@ -30,8 +30,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Router>
-					<nav className="navbar navbar-expand-lg navbar-light bg-light">
-						<Link className="navbar-brand">monroe's salon</Link>
+					<nav className="navbar navbar-expand-lg navbar-light  nav  ">
+						<Link className="navbar-brand navbar-color">
+							<h2>monroe's salon</h2>
+						</Link>
 						<button
 							className="navbar-toggler"
 							type="button"
@@ -43,12 +45,15 @@ class App extends Component {
 						>
 							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div
+							className="collapse navbar-collapse navPlace "
+							id="navbarNavAltMarkup"
+						>
 							<div class="navbar-nav">
-								<Link className="nav-item nav-link ">About Us</Link>
+								<Link className="nav-item nav-link navset ">About Us</Link>
 								{is_logged_in ? (
 									<>
-										<Link className="nav-item nav-link " to="/">
+										<Link className="nav-item nav-link navset " to="/">
 											Home
 										</Link>
 
@@ -56,16 +61,18 @@ class App extends Component {
 									</>
 								) : (
 									<>
-										<Link className="nav-item nav-link " to="/signup">
+										<Link className="nav-item nav-link navset" to="/signup">
 											Sign Up
 										</Link>
 
-										<Link className="nav-item nav-link " to="/login">
+										<Link className="nav-item nav-link navset " to="/login">
 											Members Login
 										</Link>
 									</>
 								)}
-								<Link className="nav-item nav-link ">Book a Consolation</Link>
+								<Link className="nav-item nav-link navset ">
+									Book a Consolation
+								</Link>
 							</div>
 						</div>
 					</nav>
