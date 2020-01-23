@@ -54,8 +54,9 @@ class App extends Component {
 							)}
 						</ul>
 						<div className="logo">
-							<img className="logo-dem" src={logo} alt="monroe's salon logo" />
+							<h1>monroe's salon</h1>
 						</div>
+
 						<ul className="nav-two">
 							<li className="nav-right">
 								<p className="">Book a Consolation</p>
