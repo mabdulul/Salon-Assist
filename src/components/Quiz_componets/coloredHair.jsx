@@ -10,11 +10,28 @@ const Coloredhair = ({ history }) => {
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
-		//const { boxdye_salon } = data.boxdye_salon;
+		const boxdye_salon = data.boxdye_salon;
 		const virgin_hair = data.virgin_hair;
 
-		if (!virgin_hair) {
+		if (!virgin_hair && !boxdye_salon) {
 			setMsg("Please select an answer.");
+			// console.log("Please try again");
+		} else if (virgin_hair === "Yes") {
+			const response = await fetch(
+				"http://localhost:3080/hair/form/virgin_hair",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(data)
+				}
+			);
+			console.log(response);
+			history.push("/hairroutine");
+		} else if (virgin_hair === "No" && !boxdye_salon) {
+			setMsg("Please select BoxDye or Salon");
 			// console.log("Please try again");
 		} else {
 			const response = await fetch("http://localhost:3080/hair/form/dye", {
@@ -32,7 +49,7 @@ const Coloredhair = ({ history }) => {
 	const BacktoHairLength = () => {
 		history.push("/hairlength");
 	};
-	const coloredhair = watch("coloredhair");
+	const coloredhair = watch("virgin_hair");
 	console.log(coloredhair);
 	return (
 		<>
