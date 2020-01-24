@@ -2,6 +2,11 @@ h4 {
     font-family: 'Cardo', serif;
 }
 
+.errorMsg {
+    color: rgb(161, 7, 7);
+    font-weight: 600;
+}
+
 .QuizForm__label {
     display: flex;
     justify-content: center;
@@ -49,7 +54,7 @@ h4 {
 }
 
 .QuizForm_breadcrumbs-line {
-    width: 87px;
+    width: 119px;
     height: 1px;
     border: 1px solid;
     display: block;
@@ -161,4 +166,9 @@ h4 {
 .tempfix-block {
     display: block;
     width: 500px;
+}
+
+.hairRoutine-textbox {
+    width: 300px;
+    height: 100px;
 }
