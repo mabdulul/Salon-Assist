@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 //StyleSheet
@@ -6,17 +6,35 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 
 const Hairlength = ({ history }) => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data, e) => {
+	const [errorMsg, setMsg] = useState("");
+	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
-		history.push("/coloredhair");
+		const length_hair = data.length_hair;
+		console.log("here", length_hair);
+
+		if (!length_hair) {
+			setMsg("Please select an answer.");
+			// console.log("Please try again");
+		} else {
+			const response = await fetch(
+				"http://localhost:3080/hair/form/length_hair",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(data)
+				}
+			);
+			console.log(response);
+			history.push("/coloredhair");
+		}
 	};
 	const BacktoHairStructure = () => {
 		history.push("/hairStruture");
 	};
-	// const NexttoHairType = () => {
-
-	// };
 
 	return (
 		<>
@@ -33,17 +51,19 @@ const Hairlength = ({ history }) => {
 								<span className="QuizForm_breadcrumbs "></span>
 								<span className="QuizForm_breadcrumbs is-active"></span>
 								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs-line"></span>
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
+								<p className="errorMsg">{errorMsg}</p>
 								<h4>How long is your hair?</h4>
 							</div>
 							<div className="QuizForm__label">
 								<label>
 									<input
 										type="radio"
-										name="hairslength"
+										name="length_hair"
 										value="pixie"
 										ref={register}
 									/>
@@ -54,7 +74,7 @@ const Hairlength = ({ history }) => {
 								<label>
 									<input
 										type="radio"
-										name="hairslength"
+										name="length_hair"
 										value="short"
 										ref={register}
 										className="img-fluid"
@@ -66,7 +86,7 @@ const Hairlength = ({ history }) => {
 								<label>
 									<input
 										type="radio"
-										name="hairslength"
+										name="length_hair"
 										value="shoulderlength "
 										ref={register}
 										className="img-fluid"
@@ -78,7 +98,7 @@ const Hairlength = ({ history }) => {
 								<label>
 									<input
 										type="radio"
-										name="hairslength"
+										name="length_hair"
 										value="long"
 										ref={register}
 										className="img-fluid"
