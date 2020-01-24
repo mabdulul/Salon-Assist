@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 //import { Redirect } from "react-router-dom";
 
@@ -12,16 +12,36 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 
 const Hairstructure = ({ history }) => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data, e) => {
+	const [errorMsg, setMsg] = useState("");
+	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
+		const hairstructure = data.hairstructure;
+		console.log(hairstructure);
+
+		if (!hairstructure) {
+			setMsg("Please select an answer.");
+			// console.log("Please try again");
+		} else {
+			const response = await fetch(
+				"http://localhost:3080/hair/form/hairstructure",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(data)
+				}
+			);
+			console.log(response);
+			history.push("/hairlength");
+		}
 	};
 	const BacktoHairType = () => {
 		history.push("/hairQuiz");
 	};
-	const NexttoHairType = () => {
-		history.push("hairlength");
-	};
+
 	return (
 		<>
 			<div className="container">
@@ -37,10 +57,12 @@ const Hairstructure = ({ history }) => {
 								<span className="QuizForm_breadcrumbs is-active"></span>
 								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs-line"></span>
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
+								<p className="errorMsg">{errorMsg}</p>
 								<h4>Your hair structure is?</h4>
 							</div>
 							<div className="QuizForm__label">
@@ -86,15 +108,11 @@ const Hairstructure = ({ history }) => {
 								</label>
 							</div>
 						</div>
-						<div class="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
+						<div className="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
 							<button className="QuizForm__btn" onClick={BacktoHairType}>
 								← Back
 							</button>
-							<button
-								className="QuizForm__btn"
-								type="submit"
-								onClick={NexttoHairType}
-							>
+							<button className="QuizForm__btn" type="submit">
 								Next →
 							</button>
 						</div>
