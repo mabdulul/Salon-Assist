@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 //StyleSheet
@@ -6,9 +6,28 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 
 const Coloredhair = ({ history }) => {
 	const { register, watch, handleSubmit } = useForm();
-	const onSubmit = (data, e) => {
+	const [errorMsg, setMsg] = useState("");
+	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
+		//const { boxdye_salon } = data.boxdye_salon;
+		const virgin_hair = data.virgin_hair;
+
+		if (!virgin_hair) {
+			setMsg("Please select an answer.");
+			// console.log("Please try again");
+		} else {
+			const response = await fetch("http://localhost:3080/hair/form/dye", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			});
+			console.log(response);
+			history.push("/hairroutine");
+		}
 	};
 	const BacktoHairLength = () => {
 		history.push("/hairlength");
@@ -30,17 +49,19 @@ const Coloredhair = ({ history }) => {
 								<span className="QuizForm_breadcrumbs "></span>
 								<span className="QuizForm_breadcrumbs "></span>
 								<span className="QuizForm_breadcrumbs is-active"></span>
+								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs-line"></span>
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
+								<p className="errorMsg">{errorMsg}</p>
 								<h4>Do you have virgin hair ?</h4>
 							</div>
 							<div className="QuizForm__label">
 								<label>
 									<input
 										type="radio"
-										name="coloredhair"
+										name="virgin_hair"
 										value="Yes"
 										ref={register}
 									/>
@@ -51,7 +72,7 @@ const Coloredhair = ({ history }) => {
 								<label>
 									<input
 										type="radio"
-										name="coloredhair"
+										name="virgin_hair"
 										value="No"
 										ref={register}
 										className="img-fluid"
@@ -71,7 +92,7 @@ const Coloredhair = ({ history }) => {
 										<label>
 											<input
 												type="radio"
-												name="coloredhairType"
+												name="boxdye_salon"
 												value="BoxDye"
 												ref={register}
 											/>
@@ -82,7 +103,7 @@ const Coloredhair = ({ history }) => {
 										<label>
 											<input
 												type="radio"
-												name="coloredhairType"
+												name="boxdye_salon"
 												value="Salon"
 												ref={register}
 												className="img-fluid"
@@ -95,12 +116,9 @@ const Coloredhair = ({ history }) => {
 
 									<div className="QuizForm__label QuizForm--TyOfColor ">
 										<div className="QuizForm-header">
-											<p class="tempfix">
-												{" "}
-												<h4>What color was it ?</h4> You can chose more than one
-												👌
-											</p>
-											<div class="tempfix-block"></div>
+											<h4>What color was it ?</h4>
+											<p className="tempfix"> You can chose more than one </p>
+											<div className="tempfix-block"></div>
 										</div>
 
 										<label>
@@ -209,7 +227,7 @@ const Coloredhair = ({ history }) => {
 							)}
 							{/* End Here */}
 						</div>
-						<div class="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
+						<div className="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
 							<button className="QuizForm__btn" onClick={BacktoHairLength}>
 								← Back
 							</button>
