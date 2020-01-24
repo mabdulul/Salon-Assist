@@ -11,8 +11,7 @@ import HairStructure from "./components/Quiz_componets/hairstructure";
 import HairLength from "./components/Quiz_componets/hairlength";
 import Coloredhair from "./components/Quiz_componets/coloredHair";
 import UploadUserPics from "./components/Quiz_componets/uploadPics";
-
-import logo from "./images/logo5.png";
+import HairRoutine from "./components/Quiz_componets/hairroutine";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -25,7 +24,6 @@ class App extends Component {
 
 	render() {
 		const { is_logged_in } = this.context;
-		console.log(is_logged_in);
 
 		return (
 			<div className="App">
@@ -49,7 +47,7 @@ class App extends Component {
 							className="collapse navbar-collapse navPlace "
 							id="navbarNavAltMarkup"
 						>
-							<div class="navbar-nav">
+							<div className="navbar-nav">
 								<Link className="nav-item nav-link navset ">About Us</Link>
 								{is_logged_in ? (
 									<>
@@ -83,6 +81,7 @@ class App extends Component {
 					<Route path="/hairLength" exact component={HairLength} />
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/uploadUserpics" exact component={UploadUserPics} />
+					<Route path="/hairroutine" exact component={HairRoutine} />
 				</Router>
 			</div>
 		);

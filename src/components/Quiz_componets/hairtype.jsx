@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 //Images
 import straight from "../../Stylesheets/Quiz/Images/straight.svg";
@@ -10,14 +10,32 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 
 const HairType = ({ history }) => {
 	const { register, handleSubmit } = useForm();
+	const [errorMsg, setMsg] = useState("");
+
+	console.log("here", errorMsg);
 	useEffect(() => {
 		const id = localStorage.getItem("personid");
 		console.log("The id is ", id);
 	}, []);
-	const onSubmit = (data, e) => {
+	const onSubmit = async (data, e) => {
 		e.preventDefault();
-		console.log(data);
-		history.push("/hairStruture");
+		const hairtype = data.hairtype;
+
+		if (!hairtype) {
+			setMsg("Please select an answer.");
+			// console.log("Please try again");
+		} else {
+			const response = await fetch("http://localhost:3080/hair/form/hairtype", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			});
+			console.log(response);
+			history.push("/hairStruture");
+		}
 	};
 	return (
 		<>
@@ -34,10 +52,12 @@ const HairType = ({ history }) => {
 								<span className="QuizForm_breadcrumbs "></span>
 								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs"></span>
+								<span className="QuizForm_breadcrumbs"></span>
 								<span className="QuizForm_breadcrumbs-line"></span>
 								<span className="QuizForm_end">END</span>
 							</div>
 							<div className="QuizForm-header">
+								<p className="errorMsg">{errorMsg}</p>
 								<h4>What is your hair type?</h4>
 							</div>
 							<div className="QuizForm__label">
@@ -80,7 +100,7 @@ const HairType = ({ history }) => {
 								</label>
 							</div>
 						</div>
-						<div class="QuizForm__btnBlock QuizForm__btn--single col-sm-12 col-md-12 col-lg-12">
+						<div className="QuizForm__btnBlock QuizForm__btn--single col-sm-12 col-md-12 col-lg-12">
 							<button className="QuizForm__btn " type="submit">
 								Next →
 							</button>
