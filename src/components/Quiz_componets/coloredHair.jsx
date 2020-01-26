@@ -9,7 +9,9 @@ const Coloredhair = ({ history }) => {
 	const [errorMsg, setMsg] = useState("");
 	const [errorDyeSalon, seterrorDyeSalon] = useState("");
 	const [errorColor, seterrorColor] = useState("");
+	let user_id = localStorage.personid;
 	const onSubmit = async (data, e) => {
+		data.user_id = user_id;
 		e.preventDefault();
 
 		const boxdye_salon = data.boxdye_salon;
