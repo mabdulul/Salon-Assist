@@ -7,11 +7,14 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 const Coloredhair = ({ history }) => {
 	const { register, watch, handleSubmit } = useForm();
 	const [errorMsg, setMsg] = useState("");
+	const [errorDyeSalon, seterrorDyeSalon] = useState("");
+	const [errorColor, seterrorColor] = useState("");
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
-		console.log(data);
+
 		const boxdye_salon = data.boxdye_salon;
 		const virgin_hair = data.virgin_hair;
+		const colorOfhair = data.colorOfhair;
 
 		if (!virgin_hair && !boxdye_salon) {
 			setMsg("Please select an answer.");
@@ -31,8 +34,10 @@ const Coloredhair = ({ history }) => {
 			console.log(response);
 			history.push("/hairroutine");
 		} else if (virgin_hair === "No" && !boxdye_salon) {
-			setMsg("Please select BoxDye or Salon");
+			seterrorDyeSalon("Please select BoxDye or Salon");
 			// console.log("Please try again");
+		} else if (colorOfhair.length === 0) {
+			seterrorColor("Please select your hair color");
 		} else {
 			const response = await fetch("http://localhost:3080/hair/form/dye", {
 				method: "POST",
@@ -105,6 +110,7 @@ const Coloredhair = ({ history }) => {
 									<div className="QuizForm__label QuizForm--TyOfColor tempfix">
 										<div className="QuizForm-header">
 											<h4>Was it box dye or done at a Salon ?</h4>
+											<p className="errorMsg">{errorDyeSalon}</p>
 										</div>
 										<label>
 											<input
@@ -135,6 +141,7 @@ const Coloredhair = ({ history }) => {
 										<div className="QuizForm-header">
 											<h4>What color was it ?</h4>
 											<p className="tempfix"> You can chose more than one </p>
+											<p className="errorMsg">{errorColor}</p>
 											<div className="tempfix-block"></div>
 										</div>
 
