@@ -11,14 +11,15 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 const HairType = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 	const [errorMsg, setMsg] = useState("");
+	let user_id = localStorage.personid;
 
-	console.log("here", errorMsg);
 	useEffect(() => {
 		const id = localStorage.getItem("personid");
-		console.log("The id is ", id);
 	}, []);
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
+		data.user_id = user_id;
+		console.log(data);
 		const hairtype = data.hairtype;
 
 		if (!hairtype) {
