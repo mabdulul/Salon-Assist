@@ -7,11 +7,13 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 const Hairlength = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 	const [errorMsg, setMsg] = useState("");
+	let user_id = localStorage.personid;
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
 		const length_hair = data.length_hair;
 		console.log("here", length_hair);
+		data.user_id = user_id;
 
 		if (!length_hair) {
 			setMsg("Please select an answer.");
