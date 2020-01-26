@@ -38,7 +38,7 @@ const HairRoutine = ({ history }) => {
 						</div>
 						<div className="QuizForm__label">
 							<textarea
-								class="hairRoutine-textbox"
+								className="hairRoutine-textbox"
 								name="hairRoutine"
 								ref={register}
 							></textarea>
