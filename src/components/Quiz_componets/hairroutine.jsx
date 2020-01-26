@@ -7,11 +7,12 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 const HairRoutine = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 	const [errorMsg, setMsg] = useState("");
+	let user_id = localStorage.personid;
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
-		console.log(data);
 		const hairroutine = data.hairroutine;
-		console.log(hairroutine);
+		data.user_id = user_id;
+		console.log("here", data);
 
 		if (!hairroutine) {
 			setMsg(
