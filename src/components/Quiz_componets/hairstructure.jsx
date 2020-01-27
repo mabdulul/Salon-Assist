@@ -13,11 +13,16 @@ import "../../Stylesheets/Quiz/quizStyles.css";
 const Hairstructure = ({ history }) => {
 	const { register, handleSubmit } = useForm();
 	const [errorMsg, setMsg] = useState("");
+	//Getting the useid from localStorage
+	let user_id = localStorage.personid;
+
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log(data);
 		const hairstructure = data.hairstructure;
 		console.log(hairstructure);
+
+		data.user_id = user_id;
 
 		if (!hairstructure) {
 			setMsg("Please select an answer.");

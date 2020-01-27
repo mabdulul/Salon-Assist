@@ -14,7 +14,7 @@ const HairType = ({ history }) => {
 	let user_id = localStorage.personid;
 
 	useEffect(() => {
-		const id = localStorage.getItem("personid");
+		//const id = localStorage.getItem("personid");
 	}, []);
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
