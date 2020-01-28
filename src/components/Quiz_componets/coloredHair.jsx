@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import moment from "moment";
 
 //StyleSheet
 import "../../Stylesheets/Quiz/quizStyles.css";
 
 const Coloredhair = ({ history }) => {
-	const { register, watch, handleSubmit } = useForm();
+	const { register, watch, handleSubmit, errors } = useForm();
+	console.log(errors);
 	const [errorMsg, setMsg] = useState("");
 	const [errorDyeSalon, seterrorDyeSalon] = useState("");
 	const [errorColor, seterrorColor] = useState("");
 	let user_id = localStorage.personid;
-	const onSubmit = async (data, e) => {
+
+	const onSubmit = async data => {
 		data.user_id = user_id;
-		e.preventDefault();
+		console.log("this");
+
+		var day = moment(data.datecolor);
+		var t = day.format("YYYY-MM-DD HH:mm:ss");
+
+		data.datecolor = t;
+		console.log("A is here", t);
 
 		const boxdye_salon = data.boxdye_salon;
 		const virgin_hair = data.virgin_hair;
 		const colorOfhair = data.colorOfhair;
+
+		console.log(data);
 
 		if (!virgin_hair && !boxdye_salon) {
 			setMsg("Please select an answer.");
@@ -37,7 +48,6 @@ const Coloredhair = ({ history }) => {
 			history.push("/hairroutine");
 		} else if (virgin_hair === "No" && !boxdye_salon) {
 			seterrorDyeSalon("Please select BoxDye or Salon");
-			// console.log("Please try again");
 		} else if (colorOfhair.length === 0) {
 			seterrorColor("Please select your hair color");
 		} else {
@@ -57,7 +67,7 @@ const Coloredhair = ({ history }) => {
 		history.push("/hairlength");
 	};
 	const coloredhair = watch("virgin_hair");
-	console.log(coloredhair);
+
 	return (
 		<>
 			<div className="container">
@@ -109,7 +119,7 @@ const Coloredhair = ({ history }) => {
 							{/* Ternary */}
 							{coloredhair === "No" ? (
 								<>
-									<div className="QuizForm__label QuizForm--TyOfColor tempfix">
+									<div className="QuizForm__label QuizForm--TyOfColor ">
 										<div className="QuizForm-header">
 											<h4>Was it box dye or done at a Salon ?</h4>
 											<p className="errorMsg">{errorDyeSalon}</p>
@@ -138,11 +148,24 @@ const Coloredhair = ({ history }) => {
 											</div>
 										</label>
 									</div>
+									<div className="QuizForm__label QuizForm--TyOfColor">
+										<div className="QuizForm-header">
+											<h4>When did you color your hair ?</h4>
+										</div>
+										<label className="tempfix">
+											<input
+												type="datetime"
+												placeholder="YYYY-MM-DD"
+												name="datecolor"
+												ref={register}
+											/>
+										</label>
+									</div>
 
 									<div className="QuizForm__label QuizForm--TyOfColor ">
 										<div className="QuizForm-header">
 											<h4>What color was it ?</h4>
-											<p className="tempfix"> You can chose more than one </p>
+											<p> You can chose more than one </p>
 											<p className="errorMsg">{errorColor}</p>
 											<div className="tempfix-block"></div>
 										</div>
