@@ -22,7 +22,7 @@ const HairProfile = () => {
 			const response = await fetch(
 				`http://localhost:3080/hair/form/hairprofile/${user_id}`
 			);
-
+			console.log(response);
 			const data = await response.json();
 			setHair(data.hairtype);
 			setlength(data.length_hair);
