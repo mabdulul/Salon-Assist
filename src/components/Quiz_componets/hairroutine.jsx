@@ -32,7 +32,7 @@ const HairRoutine = ({ history }) => {
 				}
 			);
 			console.log(response);
-			history.push("/hairroutine");
+			history.push("/hairprofile");
 		}
 	};
 	const BacktoHairColor = () => {
