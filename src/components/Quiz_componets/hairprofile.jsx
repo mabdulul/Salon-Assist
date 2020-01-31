@@ -13,6 +13,7 @@ const HairProfile = () => {
 	const [hairstructure, setshairstructure] = useState("");
 	const [hairColor, sethairColor] = useState("");
 	const [hairRoutine, setHairRoutine] = useState("");
+	const [virginhair, setVirginHair] = useState("");
 
 	useEffect(() => {
 		let user_id = localStorage.personid;
@@ -30,6 +31,7 @@ const HairProfile = () => {
 			setshairstructure(data.hair_structure);
 			sethairColor(data.haircolor);
 			setHairRoutine(data.hairroutine);
+			setVirginHair(data.virgin_hair);
 			setLoading(false);
 			console.log("here", data);
 		}
@@ -47,15 +49,21 @@ const HairProfile = () => {
 						<ul>
 							<li>{hairtype}</li>
 							<li>{length}</li>
-							<li>
-								{typeofColor === "Salon" ? (
-									<>recently dye at salon</>
-								) : (
-									<>recently colored using box dye</>
-								)}
-							</li>
+							{virginhair === "No" ? (
+								<>
+									<li>
+										{typeofColor === "Salon" ? (
+											<>recently dye at salon</>
+										) : (
+											<>recently colored using box dye</>
+										)}
+									</li>
+									<li>You currently have {hairColor}</li>
+								</>
+							) : (
+								""
+							)}
 							<li>{hairstructure}</li>
-							<li>You currently have {hairColor}</li>
 							<li>{hairRoutine}</li>
 						</ul>
 					</>

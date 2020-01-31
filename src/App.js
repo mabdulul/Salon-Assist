@@ -84,6 +84,7 @@ class App extends Component {
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/hairroutine" exact component={HairRoutine} />
 					<Route path="/hairprofile" exact component={HairProfile} />
+					<Route path="/logOut " exact component={LogOut} />
 				</Router>
 			</div>
 		);
