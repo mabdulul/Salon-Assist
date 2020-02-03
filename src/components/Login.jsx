@@ -81,7 +81,7 @@ class Login extends Component {
 								<form className="form-login Login" onSubmit={this.handleSubmit}>
 									<label htmlFor="Email">
 										<p className="login-header">
-											Login to see your past, present, and future self.
+											Login in with your email and password.
 										</p>
 										<input
 											className="login-input"
@@ -89,7 +89,7 @@ class Login extends Component {
 											type="text"
 											name="email"
 											onChange={this.handleChange}
-											placeholder="Email Address"
+											placeholder="Your email"
 											required
 										/>
 										{!couldNotfindLogin ? (
@@ -110,7 +110,7 @@ class Login extends Component {
 										/>
 									</label>
 									<button className="login-button" type="submit">
-										Login
+										LOG IN
 									</button>
 								</form>
 							</div>
