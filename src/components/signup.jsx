@@ -75,6 +75,7 @@ class SignUp extends Component {
 									className="form-login signup"
 									onSubmit={this.handleSubmit}
 								>
+									<p className="signup-header">Sign Up</p>
 									<label htmlFor="firstname">
 										<input
 											className="signup-input"
