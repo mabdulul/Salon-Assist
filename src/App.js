@@ -13,6 +13,9 @@ import Coloredhair from "./components/Quiz_componets/coloredHair";
 import HairProfile from "./components/Quiz_componets/hairprofile";
 import HairRoutine from "./components/Quiz_componets/hairroutine";
 
+//Make Appts
+import BookingOne from "./components/Makeappt/bookingone";
+
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
 
@@ -30,7 +33,7 @@ class App extends Component {
 				<Router>
 					<nav className="navbar navbar-expand-lg navbar-light  nav  ">
 						<Link className="navbar-brand navbar-color">
-							<h2>monroe's salon</h2>
+							<h2>monroe's</h2>
 						</Link>
 						<button
 							className="navbar-toggler"
@@ -48,7 +51,6 @@ class App extends Component {
 							id="navbarNavAltMarkup"
 						>
 							<div className="navbar-nav">
-								<Link className="nav-item nav-link navset ">About Us</Link>
 								{is_logged_in ? (
 									<>
 										<Link className="nav-item nav-link navset " to="/">
@@ -84,6 +86,8 @@ class App extends Component {
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/hairroutine" exact component={HairRoutine} />
 					<Route path="/hairprofile" exact component={HairProfile} />
+
+					<Route path="/bookingone" exact component={BookingOne} />
 					<Route path="/logOut " exact component={LogOut} />
 				</Router>
 			</div>

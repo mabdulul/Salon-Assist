@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap");
 
 nav {
-    font-family: 'Cardo', serif;
 }
 
 .navbar-collapse .nav-link {
-    font-family: 'Carrois Gothic SC', sans-serif;
-
+	font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
-    background-color: rgb(151, 211, 199);
-    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px #1e201f59;
+	border: 1px solid #ededed;
 }
 
 .navbar-collapse {
-    justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .nav .navbar-color {
-    color: white;
-    font-weight: 36px;
+	font-weight: 36px;
+	font-family: "Poiret One", cursive;
+	border: 2px solid;
+	/* padding: 7px; */
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .nav .navPlace .navset {
-    color: white;
-    font-size: 20px;
+	font-size: 15px;
 }
 
 /* nav {

@@ -1,55 +1,51 @@
 /* The Login Section  */
 .login-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
+	display: flex;
+	justify-content: center;
+	margin-top: 5rem;
+	font-family: "Montserrat", sans-serif;
 }
 
 .Login {
-    display: flex;
-    flex-direction: column;
-
+	display: flex;
+	flex-direction: column;
 }
 
 .login-input {
-    outline: 0;
-    border: 0;
-    border-bottom: 1.5px solid #DDDDDD;
-    width: 300px;
-    margin-bottom: 1.5rem;
-    font-size: 15px;
-    padding: 10px;
-
+	outline: 0;
+	border: 0;
+	border: 1.5px solid #dddddd;
+	width: 300px;
+	margin-bottom: 1.5rem;
+	font-size: 14px;
+	padding: 7px;
 }
 
 .login-button {
-    outline: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    background: #43484ec5;
-    color: #ffffff;
-    padding: 5px;
-    font-size: 1rem;
-    border-radius: 3px;
-    margin-top: 1rem;
-
+	outline: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	border: none;
+	background: #333333;
+	color: #ffffff;
+	padding: 10px;
+	font-size: 0.8rem;
+	border-radius: 3px;
+	margin-top: 1rem;
 }
 
 .login-header {
-    font-size: 1.2rem;
-    margin-bottom: 50px;
-    font-weight: 600;
-    text-align: center;
-    width: 300px;
-    font-family: 'Baskervville', serif;
+	font-size: 1.2rem;
+	margin-bottom: 50px;
+	font-weight: 600;
 
+	width: 300px;
 }
 
 .FindYou {
-    position: relative;
-    top: -20px;
-    text-align: center;
-    color: rgb(255, 0, 0);
-    font-weight: 500;
+	position: relative;
+	top: -20px;
+	text-align: center;
+	color: rgb(255, 0, 0);
+	font-weight: 500;
 }
