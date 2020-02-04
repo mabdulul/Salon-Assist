@@ -30,15 +30,18 @@ const BookingOne = () => {
 							<p className="errorMsg">{errorMsg}</p>
 							<h4>REQUEST A NEW APPOINTMENT</h4>
 						</div>
+
 						<DatePicker
 							selected={startDate}
 							onChange={date => setStartDate(date)}
 							showTimeSelect
-							timeIntervals={30}
-							timeCaption="Time"
+							timeFormat="HH:mm"
+							timeIntervals={15}
+							timeCaption="time"
 							dateFormat="MMMM d, yyyy h:mm aa"
+							ref={register}
+							name="date"
 						/>
-
 						<label>
 							<select ref={register} name="service">
 								<option value="Balayage/Ombre">Balayage/Ombre</option>
