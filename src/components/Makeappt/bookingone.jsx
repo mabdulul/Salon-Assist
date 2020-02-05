@@ -11,32 +11,25 @@ const BookingOne = () => {
 	const [startDate, setStartDate] = useState(
 		new Date("02-20-2020 12:00:00 GMT-0500")
 	);
-
-	var closedTime = [
-		new Date("02-05-2020 00:00:00 GMT-0500"),
-		new Date("02-05-2020 01:00:00 GMT-0500"),
-		new Date("02-20-2020 02:00:00 GMT-0500"),
-		new Date("02-20-2020 03:00:00 GMT-0500"),
-		new Date("02-20-2020 04:00:00 GMT-0500"),
-		new Date("02-20-2020 05:00:00 GMT-0500"),
-		new Date("02-20-2020 06:00:00 GMT-0500"),
-		new Date("02-20-2020 07:00:00 GMT-0500"),
-		new Date("02-20-2020 08:00:00 GMT-0500"),
-		new Date("02-20-2020 09:00:00 GMT-0500"),
-		new Date("02-20-2020 10:00:00 GMT-0500"),
-		new Date("02-20-2020 11:00:00 GMT-0500")
-	];
+	const [notavailable, setnotavailable] = useState([]);
+	console.log("not aav", notavailable);
 
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
 		console.log("Here", startDate);
 
 		var day = moment(startDate);
-		var t = day.format("YYYY-MM-DD HH:mm:ss");
-		data.date = t;
-		console.log("I am t", t);
+		var converTime = day.format("YYYY-MM-DD HH:mm:ss");
+		data.date = converTime;
 
 		console.log(data);
+		const getTimeResponse = await fetch(
+			`http://localhost:3080/appt/check/${data.stylist_id}`
+		);
+		const timeRes = await getTimeResponse.json();
+		console.log(timeRes);
+		const getAllDates = timeRes.map(time => new Date(`${time.date_of}`));
+		setnotavailable(getAllDates);
 
 		const response = await fetch("http://localhost:3080/appt/", {
 			method: "POST",
@@ -72,8 +65,10 @@ const BookingOne = () => {
 							selected={startDate}
 							onChange={date => setStartDate(date)}
 							showTimeSelect
-							excludeTimes={closedTime}
+							excludeTimes={notavailable}
 							timeIntervals={60}
+							minTime={new Date("02-05-2020 12:00:00 GMT-0500")}
+							maxTime={new Date("02-20-2020 21:00:00 GMT-0500")}
 							dateFormat="MMMM d, yyyy h:mm aa"
 						/>
 						<label>

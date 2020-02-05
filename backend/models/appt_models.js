@@ -26,6 +26,28 @@ class ApptModels {
 			return error.message;
 		}
 	}
+	async CheckTime() {
+		try {
+			const response = await db.query(
+				`SELECT
+                stylist.stylist_id,
+                firstname,
+                lastname,
+                appt.service,
+                appt.date_of
+                
+             FROM
+                stylist
+             INNER JOIN appt ON appt.stylist_id = stylist.stylist_id
+             WHERE
+             appt.stylist_id=${this.stylist_id};`
+			);
+			console.log(response);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
 }
 
 module.exports = ApptModels;

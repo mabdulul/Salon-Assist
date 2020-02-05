@@ -10,4 +10,11 @@ router.post("/", async (req, res) => {
 	console.log(formInstance);
 });
 
+router.get("/check/:stylist_id", async (req, res) => {
+	const { stylist_id } = req.params;
+	const formInstance = new ApptModel(null, stylist_id, null, null, null);
+	const formIn = await formInstance.CheckTime();
+	res.json(formIn).status(200);
+});
+
 module.exports = router;
