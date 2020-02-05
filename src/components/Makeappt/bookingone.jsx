@@ -3,20 +3,50 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+
 import moment from "moment";
 
 const BookingOne = () => {
 	const { register, handleSubmit } = useForm();
-	const [errorMsg, setMsg] = useState("");
-	const [startDate, setStartDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(
+		new Date("02-20-2020 12:00:00 GMT-0500")
+	);
+
+	var closedTime = [
+		new Date("02-05-2020 00:00:00 GMT-0500"),
+		new Date("02-05-2020 01:00:00 GMT-0500"),
+		new Date("02-20-2020 02:00:00 GMT-0500"),
+		new Date("02-20-2020 03:00:00 GMT-0500"),
+		new Date("02-20-2020 04:00:00 GMT-0500"),
+		new Date("02-20-2020 05:00:00 GMT-0500"),
+		new Date("02-20-2020 06:00:00 GMT-0500"),
+		new Date("02-20-2020 07:00:00 GMT-0500"),
+		new Date("02-20-2020 08:00:00 GMT-0500"),
+		new Date("02-20-2020 09:00:00 GMT-0500"),
+		new Date("02-20-2020 10:00:00 GMT-0500"),
+		new Date("02-20-2020 11:00:00 GMT-0500")
+	];
 
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
-		console.log(data);
+		console.log("Here", startDate);
 
 		var day = moment(startDate);
 		var t = day.format("YYYY-MM-DD HH:mm:ss");
+		data.date = t;
 		console.log("I am t", t);
+
+		console.log(data);
+
+		const response = await fetch("http://localhost:3080/appt/", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		console.log(response);
 	};
 	return (
 		<div className="container">
@@ -27,21 +57,9 @@ const BookingOne = () => {
 				>
 					<div className="col-sm-12 col-md-12 col-lg-12">
 						<div className="QuizForm-header">
-							<p className="errorMsg">{errorMsg}</p>
 							<h4>REQUEST A NEW APPOINTMENT</h4>
 						</div>
 
-						<DatePicker
-							selected={startDate}
-							onChange={date => setStartDate(date)}
-							showTimeSelect
-							timeFormat="HH:mm"
-							timeIntervals={15}
-							timeCaption="time"
-							dateFormat="MMMM d, yyyy h:mm aa"
-							ref={register}
-							name="date"
-						/>
 						<label>
 							<select ref={register} name="service">
 								<option value="Balayage/Ombre">Balayage/Ombre</option>
@@ -50,11 +68,20 @@ const BookingOne = () => {
 								<option value="Keratin Treatment">KeratinTreatment</option>
 							</select>
 						</label>
+						<DatePicker
+							selected={startDate}
+							onChange={date => setStartDate(date)}
+							showTimeSelect
+							excludeTimes={closedTime}
+							timeIntervals={60}
+							dateFormat="MMMM d, yyyy h:mm aa"
+						/>
 						<label>
-							<select ref={register} name="stylist">
-								<option value="Rahma Inman">Rahma Inman</option>
-								<option value="Sarah Hill">Sarah Hill</option>
-								<option value="Jess Garcia">Jess Garcia</option>
+							<select ref={register} name="stylist_id">
+								<option value="1">Rahma Inman</option>
+								<option value="2">Sarah Hill</option>
+								<option value="3">Jess Garcia</option>
+								<option value="Any">Any Stylist</option>
 							</select>
 						</label>
 					</div>

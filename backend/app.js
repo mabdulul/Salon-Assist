@@ -17,6 +17,7 @@ console.log(process.env.SESSION_SECRET);
 const indexRouter = require("./routes/index"),
 	usersRouter = require("./routes/users"),
 	HairForm = require("./routes/route_form");
+Appts = require("./routes/appts");
 
 const app = express();
 
@@ -48,5 +49,6 @@ app.use(
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/hair", HairForm);
+app.use("/appt", Appts);
 
 module.exports = app;

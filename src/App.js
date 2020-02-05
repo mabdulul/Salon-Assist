@@ -56,10 +56,10 @@ class App extends Component {
 										<Link className="nav-item nav-link navset " to="/">
 											Home
 										</Link>
-										<a className="nav-item nav-link navset " href="#">
+										<Link className="nav-item nav-link navset ">
 											{" "}
 											<LogOut />
-										</a>
+										</Link>
 									</>
 								) : (
 									<>
@@ -72,8 +72,8 @@ class App extends Component {
 										</Link>
 									</>
 								)}
-								<Link className="nav-item nav-link navset ">
-									Book a Consolation
+								<Link className="nav-item nav-link navset " to="/bookingone">
+									Make an Appointment
 								</Link>
 							</div>
 						</div>
