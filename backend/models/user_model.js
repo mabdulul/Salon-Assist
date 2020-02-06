@@ -2,11 +2,12 @@ const db = require("./conn");
 const bcrypt = require("bcryptjs");
 
 class User {
-	constructor(firstname, lastname, email, password) {
+	constructor(firstname, lastname, email, password, phoneNumber) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.password = password;
+		this.phoneNumber = phoneNumber;
 	}
 	checkPassword(hashedPassword) {
 		console.log("the unhased is being run");

@@ -120,6 +120,7 @@ class SignUp extends Component {
 											required
 										/>
 									</label>
+
 									<button className="signup-button" type="submit">
 										Submit
 									</button>

@@ -15,6 +15,7 @@ import HairRoutine from "./components/Quiz_componets/hairroutine";
 
 //Make Appts
 import BookingOne from "./components/Makeappt/bookingone";
+import Confirmation from "./components/Makeappt/confirmappt";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -78,6 +79,7 @@ class App extends Component {
 							</div>
 						</div>
 					</nav>
+					<Route path="/bookingone" exact component={BookingOne} />
 					<Route path="/login" exact component={Login} />
 					<Route path="/signup" exact component={signup} />
 					<Route path="/hairQuiz" exact component={HairType} />
@@ -86,8 +88,8 @@ class App extends Component {
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/hairroutine" exact component={HairRoutine} />
 					<Route path="/hairprofile" exact component={HairProfile} />
+					<Route path="/confirmation" exact component={Confirmation} />
 
-					<Route path="/bookingone" exact component={BookingOne} />
 					<Route path="/logOut " exact component={LogOut} />
 				</Router>
 			</div>

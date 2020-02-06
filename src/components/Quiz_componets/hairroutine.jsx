@@ -12,13 +12,11 @@ const HairRoutine = ({ history }) => {
 		e.preventDefault();
 		const hairroutine = data.hairroutine;
 		data.user_id = user_id;
-		console.log("here", data);
 
 		if (!hairroutine) {
 			setMsg(
 				"Please just give us a little bit info. It would really help us out"
 			);
-			// console.log("Please try again");
 		} else {
 			const response = await fetch(
 				"http://localhost:3080/hair/form/hairroutine",
@@ -31,7 +29,6 @@ const HairRoutine = ({ history }) => {
 					body: JSON.stringify(data)
 				}
 			);
-			console.log(response);
 			history.push("/hairprofile");
 		}
 	};

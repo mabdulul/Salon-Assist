@@ -11,13 +11,13 @@ class ApptModels {
 	async InsertNewAppt() {
 		try {
 			const response = await db.one(
-				`INSERT INTO appt( stylist_id, service, user_id , date_of)
+				`INSERT INTO appt( stylist_id, service, user_id, date_of)
                   VALUES
                   ( 
                     ${this.stylist_id},
                     '${this.service}',
-                    68,
-                    '${this.date}'
+					68,
+					'${this.date}'
                     );`
 			);
 			console.log(response);

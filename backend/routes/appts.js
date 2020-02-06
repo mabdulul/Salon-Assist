@@ -2,12 +2,15 @@ var express = require("express");
 const router = express.Router();
 const ApptModel = require("../models/appt_models");
 
-router.post("/", async (req, res) => {
+router.post("/appts", async (req, res) => {
 	const { stylist_id, service, date } = req.body;
 	const formInstance = new ApptModel(null, stylist_id, service, null, date);
 	const formIn = await formInstance.InsertNewAppt();
-	console.log(formIn);
-	console.log(formInstance);
+	if (formIn.id < 0) {
+		res.sendStatus(500);
+	} else {
+		res.sendStatus(200);
+	}
 });
 
 router.get("/check/:stylist_id", async (req, res) => {

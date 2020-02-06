@@ -31,7 +31,6 @@ class SessionContextProvider extends Component {
 		const id = localStorage.getItem("personid");
 		const firstname = localStorage.getItem("firtname");
 		const lastname = localStorage.getItem("lastname");
-		console.log(login);
 
 		this.setState({
 			is_logged_in: login,
