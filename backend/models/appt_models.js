@@ -1,12 +1,26 @@
 const db = require("./conn");
 
 class ApptModels {
-	constructor(apptid, stylist_id, service, user_id, date) {
+	constructor(
+		apptid,
+		stylist_id,
+		service,
+		user_id,
+		date,
+		firstName,
+		lastName,
+		emailguest,
+		PhoneNumber
+	) {
 		this.apptid = apptid;
 		this.stylist_id = stylist_id;
 		this.service = service;
 		this.user_id = user_id;
 		this.date = date;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailguest = emailguest;
+		this.PhoneNumber = PhoneNumber;
 	}
 	async InsertNewAppt() {
 		try {
@@ -16,7 +30,7 @@ class ApptModels {
                   ( 
                     ${this.stylist_id},
                     '${this.service}',
-					68,
+					${this.user_id},
 					'${this.date}'
                     );`
 			);
@@ -41,6 +55,27 @@ class ApptModels {
              INNER JOIN appt ON appt.stylist_id = stylist.stylist_id
              WHERE
              appt.stylist_id=${this.stylist_id};`
+			);
+			console.log(response);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
+	async GuestAppt() {
+		try {
+			const response = await db.one(
+				`INSERT INTO apptguest( stylist_id, service, date_of, firstName, lastName, emailguest, PhoneNumber)
+                  VALUES
+                  ( 
+                    ${this.stylist_id},
+                    '${this.service}',
+					'${this.date}',
+					'${this.firstName}',
+					'${this.lastName}',
+					'${this.emailguest}',
+					${this.PhoneNumber}
+                    );`
 			);
 			console.log(response);
 			return response;

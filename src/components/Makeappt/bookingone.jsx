@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { SessionContextAppt } from "../../context/apptContext";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import moment from "moment";
@@ -6,6 +7,8 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 
 const BookingOne = ({ history }) => {
+	const { setAppt } = useContext(SessionContextAppt);
+
 	const { register, watch, handleSubmit } = useForm();
 
 	const [startDate, setStartDate] = useState(
@@ -33,15 +36,16 @@ const BookingOne = ({ history }) => {
 		var converTime = day.format("YYYY-MM-DD HH:mm:ss");
 		data.date = converTime;
 
-		const responsethis = await fetch("http://localhost:3080/appt/appts", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(data)
-		});
-		console.log(responsethis);
+		// const responsethis = await fetch("http://localhost:3080/appt/appts", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		Accept: "application/json",
+		// 		"Content-Type": "application/json"
+		// 	},
+		// 	body: JSON.stringify(data)
+		// });
+		setAppt(data.service, data.stylist_id, data.date);
+		//console.log(responsethis);
 		history.push("/confirmation");
 	};
 	const stylistTime = watch("stylist_id");
