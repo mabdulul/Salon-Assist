@@ -1,30 +1,34 @@
 import React, { useContext } from "react";
 import { SessionContext } from "../../context/SessionContext";
 import { SessionContextAppt } from "../../context/apptContext";
+import { GuestSessionContextAppt } from "../../context/GuestContext";
 import { useForm } from "react-hook-form";
 
 const Confirmation = ({ history }) => {
 	let user_id = localStorage.personid;
 	const { is_logged_in, loggedIn } = useContext(SessionContext);
 	const { service, stylist_id, date } = useContext(SessionContextAppt);
+	const { setGuest } = useContext(GuestSessionContextAppt);
 
 	console.log(service, stylist_id, date);
 	const { register, handleSubmit } = useForm();
 
-	const onSubmitGuest = async (data, e) => {
-		data.service = service;
-		data.stylist_id = stylist_id;
-		data.date = date;
-		console.log(data);
-		const response = await fetch("http://localhost:3080/appt/guestappts", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(data)
-		});
-		const reply = await response;
+	const onSubmitGuest = async data => {
+		// data.service = service;
+		// data.stylist_id = stylist_id;
+		// data.date = date;
+		// console.log(data);
+		setGuest(data.firstName, data.lastName, data.emailguest, data.PhoneNumber);
+		history.push("/confirmationTwo");
+		// const response = await fetch("http://localhost:3080/appt/guestappts", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		Accept: "application/json",
+		// 		"Content-Type": "application/json"
+		// 	},
+		// 	body: JSON.stringify(data)
+		// });
+		// const reply = await response;
 	};
 
 	const onSubmit = async (data, e) => {

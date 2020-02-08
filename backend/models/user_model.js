@@ -53,7 +53,7 @@ class User {
 			);
 			return response;
 		} catch (err) {
-			err.message;
+			return err.message;
 		}
 	}
 }

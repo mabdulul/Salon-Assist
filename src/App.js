@@ -5,6 +5,9 @@ import Login from "./components/Login";
 import signup from "./components/signup";
 import LogOut from "./components/LogOut";
 
+//Home Page
+import HomePage from "./components/home";
+
 // Quiz Components
 import HairType from "./components/Quiz_componets/hairtype";
 import HairStructure from "./components/Quiz_componets/hairstructure";
@@ -18,6 +21,7 @@ import BookingOne from "./components/Makeappt/bookingone";
 import Confirmation from "./components/Makeappt/confirmappt";
 import ConfirmationTwo from "./components/Makeappt/confirmTwo";
 import ApptSessionContextProvider from "./context/apptContext";
+import GuestSessionContextAppt from "./context/GuestContext";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -35,8 +39,8 @@ class App extends Component {
 			<div className="App">
 				<Router>
 					<nav className="navbar navbar-expand-lg navbar-light  nav  ">
-						<Link className="navbar-brand navbar-color">
-							<h2>monroe's</h2>
+						<Link className="navbar-brand navbar-color" to="/">
+							<h2 class="nav_logo">debonaire</h2>
 						</Link>
 						<button
 							className="navbar-toggler"
@@ -71,16 +75,20 @@ class App extends Component {
 										</Link>
 
 										<Link className="nav-item nav-link navset " to="/login">
-											Members Login
+											Login
 										</Link>
 									</>
 								)}
-								<Link className="nav-item nav-link navset " to="/bookingone">
-									Make an Appointment
+								<Link
+									className="nav-item nav-link navset nav_booking "
+									to="/bookingone"
+								>
+									Book an Appointment
 								</Link>
 							</div>
 						</div>
 					</nav>
+					<Route path="/" exact component={HomePage} />
 					<Route path="/login" exact component={Login} />
 					<Route path="/signup" exact component={signup} />
 					<Route path="/hairQuiz" exact component={HairType} />
@@ -89,11 +97,17 @@ class App extends Component {
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/hairroutine" exact component={HairRoutine} />
 					<Route path="/hairprofile" exact component={HairProfile} />
-					<ApptSessionContextProvider>
-						<Route path="/confirmation" exact component={Confirmation} />
-						<Route path="/bookingone" exact component={BookingOne} />
-						<Route path="/confirmationTwo" exact component={ConfirmationTwo} />
-					</ApptSessionContextProvider>
+					<GuestSessionContextAppt>
+						<ApptSessionContextProvider>
+							<Route path="/confirmation" exact component={Confirmation} />
+							<Route path="/bookingone" exact component={BookingOne} />
+							<Route
+								path="/confirmationTwo"
+								exact
+								component={ConfirmationTwo}
+							/>
+						</ApptSessionContextProvider>
+					</GuestSessionContextAppt>
 
 					<Route path="/logOut " exact component={LogOut} />
 				</Router>

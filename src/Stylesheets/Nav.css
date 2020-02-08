@@ -1,33 +1,60 @@
 @import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Quicksand:600&display=swap');
 
-nav {
-}
+nav {}
 
 .navbar-collapse .nav-link {
-	font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
+
 }
 
-.navbar {
-	border: 1px solid #ededed;
-}
+.navbar {}
 
 .navbar-collapse {
-	justify-content: flex-end;
+    justify-content: flex-end;
 }
 
+.nav_logo {
+    color: white;
+}
+
+.nav_booking {
+    border-bottom: 2.5px solid #F95454;
+}
+
+.nav_booking:hover {
+    background-color: #F95454;
+
+}
+
+
+
 .nav .navbar-color {
-	font-weight: 36px;
-	font-family: "Poiret One", cursive;
-	border: 2px solid;
-	/* padding: 7px; */
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+    font-weight: 36px;
+
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.nav .navbar-color:hover {
+    color: white;
+    background-color: #F95454;
 }
 
 .nav .navPlace .navset {
-	font-size: 15px;
+    font-size: 15px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav .navPlace .navset:hover {
+    color: white;
+    border-bottom: 2.5px solid #F95454;
 }
 
 /* nav {

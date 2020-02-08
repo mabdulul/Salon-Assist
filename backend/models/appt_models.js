@@ -74,7 +74,7 @@ class ApptModels {
 					'${this.firstName}',
 					'${this.lastName}',
 					'${this.emailguest}',
-					${this.PhoneNumber}
+					'${this.PhoneNumber}'
                     );`
 			);
 			console.log(response);

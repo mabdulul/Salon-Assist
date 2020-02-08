@@ -11,8 +11,7 @@
 	outline: none !important;
 }
 
-html {
-}
+html {}
 
 body {
 	margin: 0;
@@ -22,7 +21,7 @@ body {
 	box-sizing: border-box;
 	overflow-x: hidden;
 	font-family: "Montserrat", sans-serif;
-
+	background-color: #DFCCC2;
 	font-size: 16px;
 }
 
