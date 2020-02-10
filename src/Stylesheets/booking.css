@@ -1,70 +1,102 @@
-.booking_selectedBox {
-	position: relative;
-	width: 100%;
+/* -webkit-appearance: none; */
+.apptContainer {
+    background-color: #c1b7cb;
+    height: 450px;
+    color: white;
 }
 
-.booking {
-	display: flex;
-	justify-content: center;
+.test {
+    background-color: #837988;
+    /* width: 992px; */
+    padding: 32px;
+    height: 400px;
+    top: 17px;
+    /* right: -109px; */
+    position: relative;
 }
 
-.booking_header h4 {
-	margin-bottom: 2rem;
-	margin-top: 2rem;
-	font-size: 1.7rem;
-	font-weight: 400;
+.apptContainer h2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #F95454;
+    max-width: 543px;
+    padding-bottom: 10px;
+    font-weight: 600
 }
 
-.booking_selectedBox .booking_selected {
-	padding: 8px 80px 8px 80px;
-
-	text-align: left;
-	/* -webkit-appearance: none; */
-	outline: none;
-	border: none;
-	color: #60666d;
+.appt-marginTop {
+    margin-top: 15px;
 }
 
-.booking_icon {
-	position: absolute;
-	top: 7px;
-	right: 0px;
-	font-size: 30px;
-	color: black;
-}
-.booking__container {
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-}
-.booking_title {
-	margin-bottom: 0px;
-}
-.booking_header {
-	position: relative;
-}
-.booking__selectSection {
-	display: block;
-}
-.booking_selectedBox--left {
-	margin-right: 30px;
-}
-.BookingForm {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50px;
-	background-color: #648480;
-	height: 300px;
+
+
+.appt_col {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.booking_btn {
-	background-color: #fafafa;
-	border: none;
-	font-weight: 500;
-	text-transform: uppercase;
-	border: 1px solid;
-	padding: 8px;
-	position: absolute;
-	right: 0;
+.appt_selectedOnly {
+    display: flex;
+    justify-content: baseline;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.appt_selectedBoxes {
+    margin-right: 20px;
+
+}
+
+.appt_selectedBoxes select {
+    padding: 8px 10px 8px 10px;
+    width: 349px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+
+}
+
+
+
+.react-datepicker-ignore-onclickoutside,
+.react-datepicker__input-container input {
+    width: 349px;
+    padding: 8px 10px 8px 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 4px;
+}
+
+.appt_button {
+    position: relative;
+    top: 20px;
+}
+
+.appt_error {
+    position: absolute;
+    color: rgb(161, 7, 7);
+    ;
+}
+
+@media (min-width: 992px) {
+    .apptContainer {
+
+        height: 350px;
+    }
+
+    .test {
+        height: 300px;
+    }
+
+    .appt-marginTop {
+        margin-top: 0px;
+    }
+
+    .react-datepicker-ignore-onclickoutside,
+    .react-datepicker__input-container input {
+        margin-top: 15px;
+    }
+
 }

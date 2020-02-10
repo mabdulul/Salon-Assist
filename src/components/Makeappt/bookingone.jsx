@@ -9,12 +9,12 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const BookingOne = ({ history }) => {
 	const { setAppt } = useContext(SessionContextAppt);
+	const [errorMsg, setMsg] = useState("");
+	const [stylistMsg, setStylist] = useState("");
 
 	const { register, watch, handleSubmit } = useForm();
 
-	const [startDate, setStartDate] = useState(
-		new Date("02-20-2020 12:00:00 GMT-0500")
-	);
+	const [startDate, setStartDate] = useState(new Date());
 	const [notavailable, setnotavailable] = useState([]);
 	console.log("not aav", notavailable);
 
@@ -37,90 +37,97 @@ const BookingOne = ({ history }) => {
 		var converTime = day.format("YYYY-MM-DD HH:mm:ss");
 		data.date = converTime;
 
-		// const responsethis = await fetch("http://localhost:3080/appt/appts", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		Accept: "application/json",
-		// 		"Content-Type": "application/json"
-		// 	},
-		// 	body: JSON.stringify(data)
-		// });
-		setAppt(data.service, data.stylist_id, data.date);
-		//console.log(responsethis);
-		history.push("/confirmation");
+		console.log(data);
+
+		if (!data.service && !data.stylist_id) {
+			setMsg("Please selected a service");
+			setStylist("Please selected stylist ");
+		} else if (!data.service) {
+			setMsg("Please selected a service");
+			setStylist("");
+		} else if (!data.stylist_id) {
+			setStylist("Please selected stylist ");
+			setMsg("");
+		} else {
+			setAppt(data.service, data.stylist_id, data.date);
+			history.push("/confirmation");
+		}
 	};
 	const stylistTime = watch("stylist_id");
 
 	return (
-		<div className="container">
-			<div className="row">
-				<form className="BookingForm" onSubmit={handleSubmit(onSubmit)}>
-					<div className="col-sm-12 col-md-12 col-lg-12 booking">
-						<div className="booking_header">
-							<h4>REQUEST A NEW APPOINTMENT</h4>
-							<div class="booking__container">
-								<label class="booking__selectSection">
-									<span className="booking_title">Service</span>
-									<div className="booking_selectedBox booking_selectedBox--left">
-										<select
-											ref={register}
-											name="service"
-											className="booking_selected"
-										>
-											<option value="Balayage/Ombre">Balayage/Ombre</option>
-											<option value="Balayage/Ombre">Balayage/Ombre</option>
-											<option value="Master Designer">Master Designer</option>
-											<option value="Shampoo/BlowDry">Shampoo/Blow Dry</option>
-											<option value="Keratin Treatment">
-												KeratinTreatment
-											</option>
-										</select>
-									</div>
-								</label>
-								<label class="booking__selectSection">
-									<p className="booking_title">Stylist</p>
-									<div className="booking_selectedBox">
-										<select
-											ref={register}
-											name="stylist_id"
-											onChange={checkStylistTime}
-											className="booking_selected"
-										>
-											<option defaultValue value=""></option>
-											<option value="1">Rahma Inman</option>
-											<option value="2">Sarah Hill</option>
-											<option value="3">Jess Garcia</option>
-											<option value="0">Any Stylist</option>
-										</select>
-										{/* <span className="booking_icon">
+		<div className="container-fluid apptContainer">
+			<form className="test" onSubmit={handleSubmit(onSubmit)}>
+				<div className="row">
+					<div className="col-sm-12 col-md-12 appt_col">
+						<h2>REQUEST A NEW APPOINTMENT</h2>
+						<div className="appt_selectedOnly">
+							<label class="appt_selectedBoxes">
+								<div className="">
+									<select ref={register} name="service" className="">
+										<option value="">Service</option>
+										<option value="Balayage/Ombre">Balayage/Ombre</option>
+										<option value="Master Designer">Master Designer</option>
+										<option value="Shampoo/BlowDry">Shampoo/Blow Dry</option>
+										<option value="Keratin Treatment">KeratinTreatment</option>
+									</select>
+								</div>
+								<span className="appt_error">{errorMsg}</span>
+							</label>
+							<label class="appt_selectedBoxes">
+								<div className="">
+									<select
+										ref={register}
+										name="stylist_id"
+										onChange={checkStylistTime}
+										className="appt-marginTop"
+									>
+										<option defaultValue value="">
+											Stylist
+										</option>
+										<option value="1">Rahma Inman</option>
+										<option value="2">Sarah Hill</option>
+										<option value="3">Jess Garcia</option>
+									</select>
+									{/* <span className="booking_icon">
 											<MdArrowDropDown />
 										</span> */}
-									</div>
-								</label>
-								{!!stylistTime ? (
-									<div className="booking_selectedBox">
-										<DatePicker
-											selected={startDate}
-											onChange={date => setStartDate(date)}
-											showTimeSelect
-											excludeTimes={notavailable}
-											timeIntervals={60}
-											minTime={new Date("02-05-2020 12:00:00 GMT-0500")}
-											maxTime={new Date("02-20-2020 21:00:00 GMT-0500")}
-											dateFormat="MMMM d, yyyy h:mm aa"
-										/>
-									</div>
-								) : (
-									" "
-								)}
-							</div>
-							<button className=" booking_btn" type="submit">
-								Next
-							</button>
+								</div>
+								<span className="appt_error">{stylistMsg}</span>
+							</label>
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+				<div className="row">
+					<div className="col-sm-12 col-md-12 appt_col">
+						{!!stylistTime ? (
+							<label className="appt-marginTop">
+								<div className="">
+									<DatePicker
+										selected={startDate}
+										onChange={date => setStartDate(date)}
+										showTimeSelect
+										excludeTimes={notavailable}
+										timeIntervals={60}
+										minTime={new Date("02-05-2020 12:00:00 GMT-0500")}
+										maxTime={new Date("02-20-2020 21:00:00 GMT-0500")}
+										dateFormat="MMMM d, yyyy h:mm aa"
+									/>
+								</div>
+							</label>
+						) : (
+							" "
+						)}
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-sm-12 col-md-12 appt_col">
+						<button className="appt_button" type="submit">
+							Next
+						</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	);
 };
