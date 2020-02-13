@@ -5,7 +5,24 @@
     color: white;
 }
 
-.test {
+.apptTwo {
+    background-color: #c1b7cb;
+    height: 650px;
+    color: white;
+}
+
+.apptTwo__forwardground {
+    background-color: #837988;
+    /* width: 992px; */
+    padding: 32px;
+    height: 600px;
+    top: 17px;
+    /* right: -109px; */
+    position: relative;
+
+}
+
+.apptContainer--forwardground {
     background-color: #837988;
     /* width: 992px; */
     padding: 32px;
@@ -21,6 +38,15 @@
     border-bottom: 3px solid #F95454;
     max-width: 543px;
     padding-bottom: 10px;
+    font-weight: 600
+}
+
+.apptTwo_h2 {
+
+
+    border-bottom: 3px solid #F95454;
+    max-width: 450px;
+
     font-weight: 600
 }
 
@@ -48,14 +74,43 @@
 
 }
 
+.apptTwo_form {
+
+    max-width: 720px;
+    width: 95%;
+}
+
+.apptTwo__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.apptTwo__container--single {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.appt_inputBoxes--right {
+    margin-right: 22px;
+}
+
+.apptTwo_form__btn {}
+
+label {
+    width: 100%;
+}
+
+.appt_inputBoxes input,
 .appt_selectedBoxes select {
     padding: 8px 10px 8px 10px;
-    width: 349px;
+    width: 100%;
     outline: none;
     border: none;
     border-radius: 10px;
 
 }
+
+
 
 
 
@@ -75,7 +130,7 @@
 }
 
 .appt_error {
-    position: absolute;
+    position: relative;
     color: rgb(161, 7, 7);
     ;
 }
@@ -86,7 +141,11 @@
         height: 350px;
     }
 
-    .test {
+    label {
+        width: auto;
+    }
+
+    .apptContainer--forwardground {
         height: 300px;
     }
 
@@ -97,6 +156,21 @@
     .react-datepicker-ignore-onclickoutside,
     .react-datepicker__input-container input {
         margin-top: 15px;
+    }
+
+    .apptTwo {
+        height: 400px;
+    }
+
+    .apptTwo__forwardground {
+        height: 350px;
+    }
+
+    .appt_inputBoxes input,
+    .appt_selectedBoxes select {
+
+        width: 349px;
+
     }
 
 }

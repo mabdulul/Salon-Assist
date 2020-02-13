@@ -29,6 +29,7 @@ const HairRoutine = ({ history }) => {
 					body: JSON.stringify(data)
 				}
 			);
+			console.log(response);
 			history.push("/hairprofile");
 		}
 	};

@@ -3,7 +3,7 @@ import { SessionContextAppt } from "../../context/apptContext";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import { MdArrowDropDown } from "react-icons/md";
+// import { MdArrowDropDown } from "react-icons/md";
 import "../../Stylesheets/booking.css";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -57,14 +57,17 @@ const BookingOne = ({ history }) => {
 
 	return (
 		<div className="container-fluid apptContainer">
-			<form className="test" onSubmit={handleSubmit(onSubmit)}>
+			<form
+				className="apptContainer--forwardground"
+				onSubmit={handleSubmit(onSubmit)}
+			>
 				<div className="row">
 					<div className="col-sm-12 col-md-12 appt_col">
 						<h2>REQUEST A NEW APPOINTMENT</h2>
 						<div className="appt_selectedOnly">
 							<label class="appt_selectedBoxes">
 								<div className="">
-									<select ref={register} name="service" className="">
+									<select ref={register} name="service" className="" required>
 										<option value="">Service</option>
 										<option value="Balayage/Ombre">Balayage/Ombre</option>
 										<option value="Master Designer">Master Designer</option>
@@ -81,6 +84,7 @@ const BookingOne = ({ history }) => {
 										name="stylist_id"
 										onChange={checkStylistTime}
 										className="appt-marginTop"
+										required
 									>
 										<option defaultValue value="">
 											Stylist
@@ -112,6 +116,7 @@ const BookingOne = ({ history }) => {
 										minTime={new Date("02-05-2020 12:00:00 GMT-0500")}
 										maxTime={new Date("02-20-2020 21:00:00 GMT-0500")}
 										dateFormat="MMMM d, yyyy h:mm aa"
+										required
 									/>
 								</div>
 							</label>

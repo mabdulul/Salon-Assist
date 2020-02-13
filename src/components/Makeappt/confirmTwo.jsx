@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { SessionContextAppt } from "../../context/apptContext";
 import { GuestSessionContextAppt } from "../../context/GuestContext";
-import { useForm } from "react-hook-form";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 const ConfirmationTwo = () => {
 	const { service, stylist_id, date } = useContext(SessionContextAppt);
