@@ -33,8 +33,8 @@ const BookingOne = ({ history }) => {
 	const onSubmit = async (data, e) => {
 		e.preventDefault();
 
-		var day = moment(startDate);
-		var converTime = day.format("YYYY-MM-DD HH:mm:ss");
+		let day = moment(startDate);
+		let converTime = day.format("YYYY-MM-DD HH:mm:ss");
 		data.date = converTime;
 
 		console.log(data);

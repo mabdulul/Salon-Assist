@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { SessionContext } from "../../context/SessionContext";
 import { SessionContextAppt } from "../../context/apptContext";
 import { GuestSessionContextAppt } from "../../context/GuestContext";
+import moment from "moment";
 import { useForm } from "react-hook-form";
 
 const Confirmation = ({ history }) => {
@@ -10,6 +11,10 @@ const Confirmation = ({ history }) => {
 	const { service, stylist_id, date } = useContext(SessionContextAppt);
 	const { setGuest } = useContext(GuestSessionContextAppt);
 	const [notLog, setnotLog] = useState("");
+
+	let day = moment(date);
+	let converTime = day.format(" MMMM DD, YYYY");
+	let timeofDay = day.format("h:mm");
 
 	console.log(service, stylist_id, date);
 	const { register, handleSubmit } = useForm();
@@ -46,7 +51,7 @@ const Confirmation = ({ history }) => {
 			localStorage.setItem("personid", userData.personid);
 			localStorage.setItem("firstname", userData.firstname);
 			localStorage.setItem("lastname", userData.lastname);
-			history.push("/confirmationTwo");
+			// history.push("/confirmationTwo");
 		}
 
 		if (reply.status !== 200) {
@@ -81,12 +86,18 @@ const Confirmation = ({ history }) => {
 				{is_logged_in ? (
 					<div className="row">
 						<div className="col-sm-12 col-md-12 appt_col">
-							<h1>
-								Please confirm you app
-								<button onClick={confirmAppt} type="submit">
-									Please Confirm
-								</button>
-							</h1>
+							<h2>PLEASE CONFIRM YOUR APPOINTMENT</h2>
+							<div className="appt__confirm">
+								<ul className="appt__confirm__deatils">
+									<li>{converTime}</li>
+									<li>
+										{service} @ {timeofDay}
+									</li>
+								</ul>
+							</div>
+							<button onClick={confirmAppt} type="submit">
+								Request an Appointment
+							</button>
 						</div>
 					</div>
 				) : (

@@ -110,6 +110,15 @@ label {
 
 }
 
+.appt__confirm {
+    max-width: 100%;
+    width: 100%;
+    background-color: #706774;
+}
+
+.appt__confirm__deatils {
+    list-style-type: none;
+}
 
 
 
