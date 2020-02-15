@@ -3,7 +3,7 @@ import { SessionContextAppt } from "../../context/apptContext";
 import { GuestSessionContextAppt } from "../../context/GuestContext";
 import moment from "moment";
 
-const ConfirmationTwo = () => {
+const ConfirmationTwo = ({ history }) => {
 	const { service, stylist_id, date } = useContext(SessionContextAppt);
 	const { firstName, lastName, emailguest, PhoneNumber } = useContext(
 		GuestSessionContextAppt
@@ -36,6 +36,7 @@ const ConfirmationTwo = () => {
 			body: JSON.stringify(userData)
 		});
 		console.log(responsethis);
+		history.push("/final");
 	};
 
 	return (
@@ -52,7 +53,7 @@ const ConfirmationTwo = () => {
 								</li>
 							</ul>
 						</div>
-						<button onClick={onSubmit} type="submit">
+						<button className="appt_button" onClick={onSubmit} type="submit">
 							Request an Appointment
 						</button>
 					</div>

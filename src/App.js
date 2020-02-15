@@ -22,6 +22,7 @@ import Confirmation from "./components/Makeappt/confirmappt";
 import ConfirmationTwo from "./components/Makeappt/confirmTwo";
 import ApptSessionContextProvider from "./context/apptContext";
 import GuestSessionContextAppt from "./context/GuestContext";
+import ConfirmationFinal from "./components/Makeappt/confrimFinal";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -108,6 +109,7 @@ class App extends Component {
 							/>
 						</ApptSessionContextProvider>
 					</GuestSessionContextAppt>
+					<Route path="/final" exact component={ConfirmationFinal} />
 
 					<Route path="/logOut " exact component={LogOut} />
 				</Router>

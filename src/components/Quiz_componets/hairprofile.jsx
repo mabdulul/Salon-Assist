@@ -38,36 +38,40 @@ const HairProfile = () => {
 	}, [user_id]);
 
 	return (
-		<div className="container">
-			<div className="row">
-				{loading ? (
-					<div>...loading</div>
-				) : (
-					<>
-						<h1>Hi , {firstName}</h1>
+		<div className="container-fluid apptTwo">
+			<div className="apptTwo__forwardground">
+				<div className="row ">
+					<div className="col-sm-12 col-md-12 appt_col">
+						{loading ? (
+							<div>...loading</div>
+						) : (
+							<>
+								<h1>Hi , {firstName}</h1>
 
-						<ul>
-							<li>{hairtype}</li>
-							<li>{length}</li>
-							{virginhair === "No" ? (
-								<>
-									<li>
-										{typeofColor === "Salon" ? (
-											<>recently dye at salon</>
-										) : (
-											<>recently colored using box dye</>
-										)}
-									</li>
-									<li>You currently have {hairColor}</li>
-								</>
-							) : (
-								""
-							)}
-							<li>{hairstructure}</li>
-							<li>{hairRoutine}</li>
-						</ul>
-					</>
-				)}
+								<ul className="hairList">
+									<li>You currently have {hairtype}.</li>
+									<li>It is {length}</li>
+									{virginhair === "No" ? (
+										<>
+											<li>
+												{typeofColor === "Salon" ? (
+													<>recently dye at salon</>
+												) : (
+													<>recently colored using box dye</>
+												)}
+											</li>
+											<li>You currently have {hairColor} hair </li>
+										</>
+									) : (
+										""
+									)}
+									<li>{hairstructure}</li>
+									<li>You style it {hairRoutine}</li>
+								</ul>
+							</>
+						)}
+					</div>
+				</div>
 			</div>
 		</div>
 	);

@@ -1,5 +1,4 @@
-h4 {
-}
+h4 {}
 
 .errorMsg {
 	color: rgb(161, 7, 7);
@@ -58,8 +57,7 @@ h4 {
 	z-index: -1;
 }
 
-.is-active {
-}
+.is-active {}
 
 .QuizForm-bgBlock {
 	padding: 20px;
@@ -67,10 +65,14 @@ h4 {
 	border-radius: 500px;
 }
 
+.QuizForm__label label {
+	width: auto;
+}
+
 .QuizForm-bgBlock__selecttext {
 	padding: 10px 15px 0px 15px;
 	width: 250px;
-	border: 1px solid #d5d1d1;
+	border: 1px solid #ffffff;
 	margin: 10px;
 	font-size: 20px;
 }
@@ -89,15 +91,16 @@ h4 {
 	height: 0;
 }
 
-[type="radio"] + img {
+[type="radio"]+img {
 	cursor: pointer;
 }
 
 /* CHECKED STYLES */
-[type="checkbox"]:checked + .QuizForm-bgBlock__selecttext,
-[type="radio"]:checked + .QuizForm-bgBlock__selecttext,
-[type="radio"]:checked + .QuizForm-bgBlock {
-	background-color: #facbd340;
+[type="checkbox"]:checked+.QuizForm-bgBlock__selecttext,
+[type="radio"]:checked+.QuizForm-bgBlock__selecttext,
+[type="radio"]:checked+.QuizForm-bgBlock {
+	background-color: #facbd3;
+	;
 }
 
 .QuizForm__btn {
@@ -117,8 +120,13 @@ h4 {
 
 .QuizForm-bgBlock__selecttext:hover,
 .QuizForm-bgBlock:hover {
-	background-color: #facbd340;
-	border: 1px solid #facbd340;
+	background-color: #facbd3;
+	border: 1px solid #facbd3;
+	;
+}
+
+.hairList {
+	list-style-type: none;
 }
 
 .QuizForm__btn:hover {

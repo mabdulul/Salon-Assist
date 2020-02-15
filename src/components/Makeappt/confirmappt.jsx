@@ -78,6 +78,7 @@ const Confirmation = ({ history }) => {
 			body: JSON.stringify(userdata)
 		});
 		console.log(responsethis);
+		history.push("/final");
 	};
 
 	return (
@@ -95,7 +96,11 @@ const Confirmation = ({ history }) => {
 									</li>
 								</ul>
 							</div>
-							<button onClick={confirmAppt} type="submit">
+							<button
+								className="appt_button"
+								onClick={confirmAppt}
+								type="submit"
+							>
 								Request an Appointment
 							</button>
 						</div>
@@ -133,7 +138,7 @@ const Confirmation = ({ history }) => {
 									</label>
 									<div className="apptTwo__container">
 										<span className="appt_error">{notLog}</span>
-										<button className="apptTwo_form__btn" type="submit">
+										<button className="appt_button" type="submit">
 											Sigin In
 										</button>
 									</div>
@@ -188,7 +193,7 @@ const Confirmation = ({ history }) => {
 										/>
 									</label>
 									<div className="apptTwo__container--single">
-										<button className="apptTwo_form__btn" type="submit">
+										<button className="appt_button" type="submit">
 											Confirm
 										</button>
 									</div>
