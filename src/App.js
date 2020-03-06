@@ -24,6 +24,9 @@ import ApptSessionContextProvider from "./context/apptContext";
 import GuestSessionContextAppt from "./context/GuestContext";
 import ConfirmationFinal from "./components/Makeappt/confrimFinal";
 
+//DashBoard
+import DashBoard from "./components/Portfolio/dashboard";
+
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
 
@@ -98,6 +101,8 @@ class App extends Component {
 					<Route path="/coloredhair" exact component={Coloredhair} />
 					<Route path="/hairroutine" exact component={HairRoutine} />
 					<Route path="/hairprofile" exact component={HairProfile} />
+					<Route path="/dashBoard" exact component={DashBoard} />
+
 					<GuestSessionContextAppt>
 						<ApptSessionContextProvider>
 							<Route path="/confirmation" exact component={Confirmation} />
