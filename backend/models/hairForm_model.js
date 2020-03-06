@@ -123,6 +123,27 @@ class HairForm {
 			return error.message;
 		}
 	}
+	async UpdateAll() {
+		try {
+			const response = await db.one(
+				`UPDATE hairquiz
+				 SET 
+				 hairtype = '${this.hairtype}'
+				 length_hair = '${this.length_hair} ',
+				 hair_structure = '${this.hair_structure} ',
+				 virgin_hair= '${this.virgin_hair}',
+				 boxdye_salon = '${this.boxdye_salon}',
+				 haircolor = array ['${this.haircolor}'],
+				 hairroutine = '${this.hairroutine}',
+				 datecolor = '${this.datecolor}'
+				 
+	            WHERE user_id=${this.user_id};`
+			);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
 }
 
 module.exports = HairForm;

@@ -173,6 +173,42 @@ router.post("/form/dye", async (req, res) => {
 	}
 });
 
+router.post("/form/updateAll", async (req, res) => {
+	console.log(req.body);
+	console.log();
+	const {
+		user_id,
+		hairtype,
+		hairstructure,
+		length_hair,
+		virgin_hair,
+		boxdye_salon,
+		colorOfhair,
+		hairroutine,
+		datecolor
+	} = req.body;
+
+	const forminstance = new HairModel(
+		user_id,
+		hairtype,
+		hairstructure,
+		length_hair,
+		virgin_hair,
+		boxdye_salon,
+		colorOfhair,
+		hairroutine,
+		datecolor
+	);
+	const formIn = await forminstance.UpdateAll();
+	console.log("The formIn", formIn);
+
+	if (formIn.id < 0) {
+		res.sendStatus(500);
+	} else {
+		res.sendStatus(200);
+	}
+});
+
 router.post("/form/hairroutine", async (req, res) => {
 	const { hairroutine, user_id } = req.body;
 	const forminstance = new HairModel(

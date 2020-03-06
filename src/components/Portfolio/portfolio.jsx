@@ -13,6 +13,7 @@ const Portfolio = () => {
 	const [hairColor, sethairColor] = useState("");
 	const [hairRoutine, setHairRoutine] = useState("");
 	const [virginhair, setVirginHair] = useState("");
+	const [dateColor, setDateColor] = useState("");
 
 	useEffect(() => {
 		let user_id = localStorage.personid;
@@ -31,12 +32,25 @@ const Portfolio = () => {
 			sethairColor(data.haircolor);
 			setHairRoutine(data.hairroutine);
 			setVirginHair(data.virgin_hair);
+			setDateColor(data.datecolor);
 			setLoading(false);
 			console.log("here", data);
 		}
 	}, [user_id]);
 
-	const onSubmit = async (data, e) => {};
+	const onSubmit = async (data, e) => {
+		data.user_id = user_id;
+		console.log(data);
+		const response = await fetch("http://localhost:3080/hair/form/updateAll", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		console.log(response);
+	};
 
 	return (
 		<>
@@ -107,6 +121,15 @@ const Portfolio = () => {
 									name="virgin_hair"
 									value={virginhair}
 									onChange={e => setVirginHair(e.target.value)}
+									ref={register}
+								/>
+							</label>
+							<label>
+								<input
+									type="text"
+									name="datecolor"
+									value={dateColor}
+									onChange={e => setDateColor(e.target.value)}
 									ref={register}
 								/>
 							</label>
