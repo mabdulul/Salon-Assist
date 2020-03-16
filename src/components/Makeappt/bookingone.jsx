@@ -93,9 +93,6 @@ const BookingOne = ({ history }) => {
 										<option value="2">Sarah Hill</option>
 										<option value="3">Jess Garcia</option>
 									</select>
-									{/* <span className="booking_icon">
-											<MdArrowDropDown />
-										</span> */}
 								</div>
 								<span className="appt_error">{stylistMsg}</span>
 							</label>

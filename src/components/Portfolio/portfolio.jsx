@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import moment from "moment";
 const Portfolio = () => {
 	const { register, handleSubmit } = useForm();
 	let user_id = localStorage.personid;
@@ -32,7 +33,11 @@ const Portfolio = () => {
 			sethairColor(data.haircolor);
 			setHairRoutine(data.hairroutine);
 			setVirginHair(data.virgin_hair);
-			setDateColor(data.datecolor);
+
+			let day = moment(data.datecolor);
+			let t = day.format("YYYY-MM-DD");
+
+			setDateColor(t);
 			setLoading(false);
 			console.log("here", data);
 		}
@@ -40,6 +45,11 @@ const Portfolio = () => {
 
 	const onSubmit = async (data, e) => {
 		data.user_id = user_id;
+
+		let day = moment(data.datecolor);
+		let t = day.format("YYYY-MM-DD HH:mm:ss");
+
+		data.datecolor = t;
 		console.log(data);
 		const response = await fetch("http://localhost:3080/hair/form/updateAll", {
 			method: "POST",
@@ -61,6 +71,7 @@ const Portfolio = () => {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className="col-sm-12 col-md-12 col-lg-12">
+							I have
 							<label>
 								<input
 									type="text"
