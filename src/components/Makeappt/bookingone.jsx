@@ -3,7 +3,6 @@ import { SessionContextAppt } from "../../context/apptContext";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-// import { MdArrowDropDown } from "react-icons/md";
 import "../../Stylesheets/booking.css";
 import "react-datepicker/dist/react-datepicker.css";
 

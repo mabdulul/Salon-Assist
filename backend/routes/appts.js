@@ -64,4 +64,34 @@ router.get("/check/:stylist_id", async (req, res) => {
 	res.json(formIn).status(200);
 });
 
+router.get("/getAppt/:user_id/:date/", async (req, res) => {
+	const { user_id, date } = req.params;
+	console.log(req.params);
+	const formInstance = new ApptModel(null, null, null, user_id, date);
+	const formIn = await formInstance.GetAppt();
+	res.json(formIn).status(200);
+});
+
+router.get("/getApptPast/:user_id/:date/", async (req, res) => {
+	const { user_id, date } = req.params;
+	console.log(req.params);
+	const formInstance = new ApptModel(null, null, null, user_id, date);
+	const formIn = await formInstance.GetPastAppt();
+	res.json(formIn).status(200);
+});
+
+router.post("/updateAppt", async (req, res) => {
+	const { apptid, stylist_id, service, user_id, date } = req.body;
+	console.log(req.body);
+	const formInstance = new ApptModel(
+		apptid,
+		stylist_id,
+		service,
+		user_id,
+		date
+	);
+	const formIn = await formInstance.UpdateAppt();
+	res.json(formIn).status(200);
+});
+
 module.exports = router;

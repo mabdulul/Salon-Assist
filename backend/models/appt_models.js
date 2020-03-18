@@ -83,6 +83,50 @@ class ApptModels {
 			return error.message;
 		}
 	}
+	async GetAppt() {
+		try {
+			const response = await db.query(
+				`select date_of, service,firstname, lastname
+				from appt
+				Inner JOIN stylist ON appt.stylist_id = stylist.stylist_id
+				WHERE user_id=${this.user_id} AND date_of >= '${this.date}';`
+			);
+			console.log(response);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
+	async GetPastAppt() {
+		try {
+			const response = await db.query(
+				`select apptid, date_of, service,firstname, lastname
+				from appt
+				Inner JOIN stylist ON appt.stylist_id = stylist.stylist_id
+				WHERE user_id=${this.user_id} AND date_of < '${this.date}';`
+			);
+			console.log(response);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
+	async UpdateAppt() {
+		try {
+			const response = await db.one(
+				`UPDATE appt
+				 SET
+				 date_of = '${this.date}',
+				 service = '${this.service}',
+				 stylist_id = '${this.stylist_id}',
+				 user_id = '${this.user_id}'
+				 WHERE apptid=${this.apptid};`
+			);
+			console.log(response);
+		} catch (error) {
+			return error.message;
+		}
+	}
 }
 
 module.exports = ApptModels;
