@@ -86,7 +86,7 @@ class ApptModels {
 	async GetAppt() {
 		try {
 			const response = await db.query(
-				`select date_of, service,firstname, lastname
+				`select date_of, service,firstname, lastname, apptid
 				from appt
 				Inner JOIN stylist ON appt.stylist_id = stylist.stylist_id
 				WHERE user_id=${this.user_id} AND date_of >= '${this.date}';`

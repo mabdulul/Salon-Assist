@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Portfolio from "./portfolio";
 import DashAppt from "./appointments";
+import ApptEdit from "./apptEdit";
 import React from "react";
 const DashBoard = () => {
 	return (
@@ -17,6 +18,9 @@ const DashBoard = () => {
 			</div>
 			<Route path="/portfolio" exact component={Portfolio} />
 			<Route path="/dashAppt" exact component={DashAppt} />
+			<Route path="/upDateAppt" exact component={DashAppt} />
+
+			<Route path="/appt/:apptid?" component={ApptEdit}></Route>
 		</Router>
 	);
 };

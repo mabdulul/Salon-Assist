@@ -1,6 +1,7 @@
 var express = require("express");
 const router = express.Router();
 const ApptModel = require("../models/appt_models");
+const CommentModel = require("../models/comments_model");
 
 router.post("/appts", async (req, res) => {
 	const { stylist_id, service, date, user_id } = req.body;
@@ -91,6 +92,14 @@ router.post("/updateAppt", async (req, res) => {
 		date
 	);
 	const formIn = await formInstance.UpdateAppt();
+	res.json(formIn).status(200);
+});
+
+router.post("/addComment", async (req, res) => {
+	const { apptid, user_id, usercomment } = req.body;
+	console.log(req.body);
+	const formInstance = new CommentModel(apptid, user_id, usercomment);
+	const formIn = await formInstance.CreatUserComments();
 	res.json(formIn).status(200);
 });
 
