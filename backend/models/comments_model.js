@@ -23,6 +23,17 @@ class CommentsTable {
 			return error.message;
 		}
 	}
+	async GetComments() {
+		try {
+			const response = await db.query(`select usercomment 
+		  from commentsTb
+		  where user_id=${this.user_id} AND apptid=${this.apptid};`);
+			console.log(response);
+			return response;
+		} catch (error) {
+			return error.message;
+		}
+	}
 }
 
 module.exports = CommentsTable;

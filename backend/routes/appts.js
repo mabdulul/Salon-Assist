@@ -103,4 +103,12 @@ router.post("/addComment", async (req, res) => {
 	res.json(formIn).status(200);
 });
 
+router.get("/getComments/:user_id/:apptid", async (req, res) => {
+	const { apptid, user_id } = req.params;
+	console.log(req.params);
+	const formInstance = new CommentModel(apptid, user_id, null);
+	const formIn = await formInstance.GetComments();
+	res.json(formIn).status(200);
+});
+
 module.exports = router;

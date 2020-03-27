@@ -8,6 +8,19 @@ const Comment = props => {
 	let apptid = props.appt;
 	const { register, handleSubmit, watch } = useForm();
 
+	useEffect(() => {
+		getComments();
+
+		async function getComments() {
+			const response = await fetch(
+				`http://localhost:3080/appt/getComments/${user_id}/${apptid}`
+			);
+			console.log(response);
+			const data = await response.json();
+			console.log(data);
+		}
+	}, [user_id, apptid]);
+
 	const commentSubmit = async (data, e) => {
 		data.user_id = user_id;
 		data.apptid = apptid;
