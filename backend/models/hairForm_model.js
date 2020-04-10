@@ -128,7 +128,7 @@ class HairForm {
 			const response = await db.one(
 				`UPDATE hairquiz
 				 SET 
-				 hairtype = '${this.hairtype}'
+				 hairtype = '${this.hairtype}',
 				 length_hair = '${this.length_hair} ',
 				 hair_structure = '${this.hair_structure} ',
 				 virgin_hair= '${this.virgin_hair}',

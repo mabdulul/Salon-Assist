@@ -1,0 +1,53 @@
+.DashBoard_Nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.DashBoard {
+    background-color: #837988;
+}
+
+.DashBoard__Nav {
+    background-color: #C1B7CB;
+    color: white;
+    padding: 2px 5px 5px 2px;
+    margin-top: 15px;
+
+}
+
+.DashBoard_divstBox {
+    max-width: 421px;
+    display: flex;
+    margin: 10px 0px;
+}
+
+.DashBoard_HeaderText {}
+
+.DashBoard_button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0px;
+}
+
+
+.DashBoard_divst_label {
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 20px;
+    color: white;
+}
+
+.DashBoard_divstBox select .DashBoard_divstBox button {
+    margin-left: 10px;
+}
+
+.DashBoard_divstBox select {
+    width: 250px;
+    text-transform: capitalize;
+    flex: auto;
+}
+
+.AppointmentsBox {
+    display: flex;
+}

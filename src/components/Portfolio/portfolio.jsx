@@ -2,29 +2,37 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import moment from "moment";
+
+import "../../Stylesheets/Dash/Prof.css";
 const Portfolio = () => {
 	const { register, handleSubmit } = useForm();
 	let user_id = localStorage.personid;
-	const [loading, setLoading] = useState(true);
-	const [firstName, setfirstName] = useState("");
+
 	const [hairtype, setHair] = useState("");
-	const [length, setlength] = useState("");
+	const [length_hair, setlength] = useState("");
 	const [typeofColor, settypeofColor] = useState("");
 	const [hairstructure, setshairstructure] = useState("");
-	const [hairColor, sethairColor] = useState("");
+	let [hairColor, sethairColor] = useState("");
+	console.log("Line 16", hairColor);
+	let test = hairColor.toString();
+	console.log("the test", test);
+	if (test === "undefined") {
+		sethairColor("N/A");
+	}
+
 	const [hairRoutine, setHairRoutine] = useState("");
 	const [virginhair, setVirginHair] = useState("");
 	const [dateColor, setDateColor] = useState("");
 
 	useEffect(() => {
 		let user_id = localStorage.personid;
-		setfirstName(localStorage.firstname);
+
 		getData();
 		async function getData() {
 			const response = await fetch(
 				`http://localhost:3080/hair/form/hairprofile/${user_id}`
 			);
-			console.log(response);
+
 			const data = await response.json();
 			setHair(data.hairtype);
 			setlength(data.length_hair);
@@ -38,8 +46,6 @@ const Portfolio = () => {
 			let t = day.format("YYYY-MM-DD");
 
 			setDateColor(t);
-			setLoading(false);
-			console.log("here", data);
 		}
 	}, [user_id]);
 
@@ -50,7 +56,7 @@ const Portfolio = () => {
 		let t = day.format("YYYY-MM-DD HH:mm:ss");
 
 		data.datecolor = t;
-		console.log(data);
+
 		const response = await fetch("http://localhost:3080/hair/form/updateAll", {
 			method: "POST",
 			headers: {
@@ -64,91 +70,131 @@ const Portfolio = () => {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container-fluid DashBoard">
+				<div className="row ">
+					<div className="col-sm-12 col-md-12 col-lg-12">
+						<div className="DashBoard_HeaderText">
+							<h1 className="DashBoard__Nav">My Profile</h1>
+						</div>
+					</div>
+				</div>
 				<div className="row">
 					<form
-						className="QuizForm col-sm-12 col-md-8 col-lg-8"
+						className=" col-sm-12 col-md-12 col-lg-12"
 						onSubmit={handleSubmit(onSubmit)}
 					>
-						<div className="col-sm-12 col-md-12 col-lg-12">
-							I have
-							<label>
-								<input
-									type="text"
+						<div className="col-sm-12 col-md-12 col-lg-12 DashBoard_divst">
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Hair Type</label>
+
+								<select
+									ref={register}
 									name="hairtype"
 									value={hairtype}
 									onChange={e => setHair(e.target.value)}
+								>
+									<option value="Straight">straight</option>
+									<option value="Wavy">wavy</option>
+									<option value="Curly">curly</option>
+								</select>
+							</div>
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Length</label>
+								<select
 									ref={register}
-								/>
-							</label>
-							<label>
-								<input
-									type="text"
 									name="length_hair"
-									value={length}
+									value={length_hair}
 									onChange={e => setlength(e.target.value)}
-									ref={register}
-								/>
-							</label>
-							<label>
-								<input
-									type="text"
-									name="boxdye_salon"
-									value={typeofColor}
-									onChange={e => settypeofColor(e.target.value)}
-									ref={register}
-								/>
-							</label>
-							<label>
-								<input
-									type="text"
+								>
+									<option value="pixie">Pixie</option>
+									<option value="short">Short</option>
+									<option value="shoulderlength">Sholder Length</option>
+									<option value="long">Long</option>
+								</select>
+							</div>
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Hair Structure</label>
+
+								<select
 									name="hairstructure"
-									value={hairstructure}
 									onChange={e => setshairstructure(e.target.value)}
 									ref={register}
-								/>
-							</label>
-							<label>
-								<input
-									type="text"
-									name="colorOfhair"
-									value={hairColor}
-									onChange={e => sethairColor(e.target.value)}
+									value={hairstructure}
+								>
+									<option value="fine">fine</option>
+									<option value="medium">medium</option>
+									<option value="coarse">coarse</option>
+								</select>
+							</div>
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Virgin Hair</label>
+
+								<select
+									name="virgin_hair"
+									onChange={e => setVirginHair(e.target.value)}
 									ref={register}
-								/>
-							</label>
-							<label>
+									value={virginhair}
+								>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+							{virginhair === "No" ? (
+								<>
+									<div className="DashBoard_divstBox">
+										<label className="DashBoard_divst_label">Color Type</label>
+										<select
+											name="boxdye_salon"
+											onChange={e => settypeofColor(e.target.value)}
+											ref={register}
+											value={typeofColor}
+										>
+											<option value="BoxDye">Box Dye</option>
+											<option value="Salon">Salon</option>
+										</select>
+									</div>
+									<div className="DashBoard_divstBox">
+										<label className="DashBoard_divst_label">Color</label>
+										<input
+											type="text"
+											name="colorOfhair"
+											value={hairColor}
+											onChange={e => sethairColor(e.target.value)}
+											ref={register}
+											size="25"
+										/>
+									</div>
+								</>
+							) : (
+								" "
+							)}
+
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Hair Routine</label>
 								<input
 									type="text"
 									name="hairroutine"
 									value={hairRoutine}
 									onChange={e => setHairRoutine(e.target.value)}
 									ref={register}
+									size="25"
 								/>
-							</label>
-							<label>
-								<input
-									type="text"
-									name="virgin_hair"
-									value={virginhair}
-									onChange={e => setVirginHair(e.target.value)}
-									ref={register}
-								/>
-							</label>
-							<label>
+							</div>
+							<div className="DashBoard_divstBox">
+								<label className="DashBoard_divst_label">Date Colored</label>
 								<input
 									type="text"
 									name="datecolor"
 									value={dateColor}
 									onChange={e => setDateColor(e.target.value)}
 									ref={register}
+									size="25"
 								/>
-							</label>
-						</div>
-						<div className="QuizForm__btnBlock col-sm-12 col-md-12 col-lg-12">
-							<button className="QuizForm__btn" type="submit">
-								Save →
-							</button>
+							</div>
+							<div className="DashBoard_divstBox   DashBoard_button">
+								<label className="DashBoard_divst_label"></label>
+								<button type="submit">Save</button>
+							</div>
 						</div>
 					</form>
 				</div>

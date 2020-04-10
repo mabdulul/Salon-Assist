@@ -26,6 +26,9 @@ import ConfirmationFinal from "./components/Makeappt/confrimFinal";
 
 //DashBoard
 import DashBoard from "./components/Portfolio/dashboard";
+import DashAppt from "./components/Portfolio/appointments";
+import ApptEdit from "./components/Portfolio/apptEdit";
+import Portfolio from "./components/Portfolio/portfolio";
 
 import "./Stylesheets/Nav.css";
 import "./Stylesheets/global.css";
@@ -71,6 +74,29 @@ class App extends Component {
 											{" "}
 											<LogOut />
 										</Link>
+										<div class="dropdown">
+											<button
+												className="btn btn-secondary dropdown-toggle"
+												type="button"
+												id="dropdownMenuButton"
+												data-toggle="dropdown"
+												aria-haspopup="true"
+												aria-expanded="false"
+											>
+												User
+											</button>
+											<div
+												className="dropdown-menu"
+												aria-labelledby="dropdownMenuButton"
+											>
+												<Link className="dropdown-item" to="/portfolio">
+													Portfolio
+												</Link>
+												<Link className="dropdown-item" to="/dashAppt">
+													Appointments
+												</Link>
+											</div>
+										</div>
 									</>
 								) : (
 									<>
@@ -117,6 +143,12 @@ class App extends Component {
 					<Route path="/final" exact component={ConfirmationFinal} />
 
 					<Route path="/logOut " exact component={LogOut} />
+
+					<Route path="/portfolio" exact component={Portfolio} />
+					<Route path="/dashAppt" exact component={DashAppt} />
+					<Route path="/upDateAppt" exact component={DashAppt} />
+
+					<Route path="/appt/:apptid?" component={ApptEdit}></Route>
 				</Router>
 			</div>
 		);

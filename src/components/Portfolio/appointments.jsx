@@ -46,34 +46,46 @@ const DashAppt = () => {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container-fluid DashBoard">
 				<div className="row">
-					{futureAppt.map(future => (
-						<>
-							<ul>
-								<li key={future.apptid}>{future.service}</li>
-								<li>
-									{future.firstname} {future.lastname}
-								</li>
-								<li>{future.date_of}</li>
-							</ul>
-							<Link to={`/appt/${future.apptid}`}>Edit</Link>
-						</>
-					))}
-
-					<ul>
-						The past
-						{pastAppt.map(past => (
+					<div className="col-sm-12 col-md-12 col-lg-12">
+						<div className="DashBoard_HeaderText">
+							<h1 className="DashBoard__Nav">Appointments</h1>
+						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-sm-12 col-md-12 col-lg-12 ">
+						<h2>Upcoming Appointments </h2>
+						{futureAppt.map(future => (
 							<>
-								<li>{past.service}</li>
-								<li>
-									{past.firstname} {past.lastname}
-								</li>
-								<li>{past.date_of}</li>
+								<div className="AppointmentsBox">
+									<div key={future.apptid}>{future.service}</div>
+									<div>
+										{future.firstname} {future.lastname}
+									</div>
+									<div>{future.date_of}</div>
+									<div>
+										<Link to={`/appt/${future.apptid}`}>Edit</Link>
+									</div>
+								</div>
 							</>
 						))}
-					</ul>
+					</div>
 				</div>
+
+				<ul>
+					The past
+					{pastAppt.map(past => (
+						<>
+							<li>{past.service}</li>
+							<li>
+								{past.firstname} {past.lastname}
+							</li>
+							<li>{past.date_of}</li>
+						</>
+					))}
+				</ul>
 			</div>
 		</>
 	);
