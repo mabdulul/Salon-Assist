@@ -1,19 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+
 import { Link } from "react-router-dom";
 import moment from "moment";
-import Comment from "./addComment";
+import Moment from "react-moment";
 
 const DashAppt = () => {
-	const { control, register, handleSubmit } = useForm();
 	const [pastAppt, setpastAppt] = useState([]);
 	const [futureAppt, setfutureAppt] = useState([]);
-
-	const { fields } = useFieldArray({
-		control,
-		name: "service"
-	});
 
 	let user_id = localStorage.personid;
 	let day = moment();
@@ -45,49 +39,75 @@ const DashAppt = () => {
 	}, [user_id, date]);
 
 	return (
-		<>
-			<div className="container-fluid DashBoard">
-				<div className="row">
-					<div className="col-sm-12 col-md-12 col-lg-12">
-						<div className="DashBoard_HeaderText">
-							<h1 className="DashBoard__Nav">Appointments</h1>
-						</div>
+		<div className="container-fluid DashBoard">
+			<div className="row">
+				<div className="col-sm-12 col-md-12 col-lg-12">
+					<div className="DashBoard_HeaderText">
+						<h1 className="DashBoard__Nav">Appointments</h1>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-sm-12 col-md-12 col-lg-12 ">
-						<h2>Upcoming Appointments </h2>
-						{futureAppt.map(future => (
-							<>
-								<div className="AppointmentsBox">
-									<div key={future.apptid}>{future.service}</div>
-									<div>
-										{future.firstname} {future.lastname}
-									</div>
-									<div>{future.date_of}</div>
-									<div>
-										<Link to={`/appt/${future.apptid}`}>Edit</Link>
-									</div>
-								</div>
-							</>
-						))}
-					</div>
-				</div>
-
-				<ul>
-					The past
-					{pastAppt.map(past => (
-						<>
-							<li>{past.service}</li>
-							<li>
-								{past.firstname} {past.lastname}
-							</li>
-							<li>{past.date_of}</li>
-						</>
-					))}
-				</ul>
 			</div>
-		</>
+			<div className="row">
+				<div className="col-sm-12 col-md-12 col-lg-12 tableBox">
+					<h5>Upcoming Appointments </h5>
+					<table class="table tableAppt">
+						<thead>
+							<tr className="tableAppt_tr">
+								<th className="tableAppt_th" scope="col">
+									Service Type
+								</th>
+								<th className="tableAppt_th" scope="col">
+									Stylist
+								</th>
+
+								<th className="tableAppt_th" scope="col">
+									Service
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{futureAppt.map(future => (
+								<>
+									<tr className="tableAppt_tr" key={future.apptid}>
+										<td className="tableAppt_td">{future.service}</td>
+										<td className="tableAppt_td">
+											{future.firstname} {future.lastname}
+										</td>
+										<td className="tableAppt_td">
+											<Moment format="YYYY-MM-DD  @h:mm A">
+												{future.date_of}
+											</Moment>
+										</td>
+										<td className="tableAppt_td">
+											<button className="appt_button">
+												{" "}
+												<Link to={`/appt/${future.apptid}`}>Edit</Link>
+											</button>
+										</td>
+									</tr>
+								</>
+							))}
+							<h5>Past Appointments </h5>
+							{pastAppt.map(past => (
+								<>
+									<tr className="tableAppt_tr" key={past.apptid}>
+										<td className="tableAppt_td">{past.service}</td>
+										<td className="tableAppt_td">
+											{past.firstname} {past.lastname}
+										</td>
+										<td className="tableAppt_td">
+											<Moment format="YYYY-MM-DD  @h:mm A">
+												{past.date_of}
+											</Moment>
+										</td>
+									</tr>
+								</>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	);
 };
 

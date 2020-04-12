@@ -79,10 +79,7 @@ const Portfolio = () => {
 					</div>
 				</div>
 				<div className="row">
-					<form
-						className=" col-sm-12 col-md-12 col-lg-12"
-						onSubmit={handleSubmit(onSubmit)}
-					>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className="col-sm-12 col-md-12 col-lg-12 DashBoard_divst">
 							<div className="DashBoard_divstBox">
 								<label className="DashBoard_divst_label">Hair Type</label>

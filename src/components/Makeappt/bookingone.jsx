@@ -8,14 +8,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const BookingOne = ({ history }) => {
 	const { setAppt } = useContext(SessionContextAppt);
-	const [errorMsg, setMsg] = useState("");
-	const [stylistMsg, setStylist] = useState("");
 
 	const { register, watch, handleSubmit } = useForm();
 
 	const [startDate, setStartDate] = useState(new Date());
 	const [notavailable, setnotavailable] = useState([]);
-	console.log("not aav", notavailable);
 
 	const checkStylistTime = async event => {
 		console.log("this data", event.target.value);
@@ -36,21 +33,8 @@ const BookingOne = ({ history }) => {
 		let converTime = day.format("YYYY-MM-DD HH:mm:ss");
 		data.date = converTime;
 
-		console.log(data);
-
-		if (!data.service && !data.stylist_id) {
-			setMsg("Please selected a service");
-			setStylist("Please selected stylist ");
-		} else if (!data.service) {
-			setMsg("Please selected a service");
-			setStylist("");
-		} else if (!data.stylist_id) {
-			setStylist("Please selected stylist ");
-			setMsg("");
-		} else {
-			setAppt(data.service, data.stylist_id, data.date);
-			history.push("/confirmation");
-		}
+		setAppt(data.service, data.stylist_id, data.date);
+		history.push("/confirmation");
 	};
 	const stylistTime = watch("stylist_id");
 
@@ -74,7 +58,6 @@ const BookingOne = ({ history }) => {
 										<option value="Keratin Treatment">KeratinTreatment</option>
 									</select>
 								</div>
-								<span className="appt_error">{errorMsg}</span>
 							</label>
 							<label class="appt_selectedBoxes">
 								<div className="">
@@ -93,7 +76,6 @@ const BookingOne = ({ history }) => {
 										<option value="3">Jess Garcia</option>
 									</select>
 								</div>
-								<span className="appt_error">{stylistMsg}</span>
 							</label>
 						</div>
 					</div>
