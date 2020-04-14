@@ -36,10 +36,18 @@
     color: white;
 }
 
+.DashBoard_comm_label {
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
+
+}
+
 .DashBoard_divstBox select .DashBoard_divstBox button {
     margin-left: 10px;
 }
 
+.DashBoard_divstBox textarea,
 .DashBoard_divstBox select {
     width: 250px;
     text-transform: capitalize;
@@ -95,12 +103,28 @@
     margin: auto;
 
     display: inline-block;
-    text-align: right;
+    text-align: left;
     margin-right: 20px;
-    color: white;
+
     border-radius: 0px;
-    width: 150px;
+    width: 200px;
     text-transform: capitalize;
     flex: auto;
+    padding: 5px;
 
+}
+
+.DashBoard_Comment {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.DashBoard_Comment_Form {
+    display: flex;
+}
+
+.DashBoard_CommentArea {
+    background-color: #5c5560;
+    color: white;
+    margin-bottom: 15px;
 }
