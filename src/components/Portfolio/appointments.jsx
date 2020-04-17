@@ -13,6 +13,24 @@ const DashAppt = () => {
 	let day = moment();
 	let date = day.format("YYYY-MM-DD");
 
+	const DeleteAppt = async e => {
+		let Deleteapptid = parseInt(e.target.value);
+		setfutureAppt(futureAppt.filter(obj => obj.apptid !== Deleteapptid));
+
+		const data = {};
+		data.apptid = Deleteapptid;
+
+		const response = await fetch("http://localhost:3080/appt/DeleteAppt", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		console.log(response);
+	};
+
 	useEffect(() => {
 		getFuture();
 		getPast();
@@ -21,10 +39,9 @@ const DashAppt = () => {
 			const response = await fetch(
 				`http://localhost:3080/appt/getApptPast/${user_id}/${date}`
 			);
-			console.log(response);
+
 			const data = await response.json();
 			setpastAppt(data);
-			console.log("The past", data);
 		}
 
 		async function getFuture() {
@@ -34,7 +51,6 @@ const DashAppt = () => {
 
 			const data = await response.json();
 			setfutureAppt(data);
-			console.log("The future", data);
 		}
 	}, [user_id, date]);
 
@@ -82,6 +98,15 @@ const DashAppt = () => {
 											<button className="appt_button">
 												{" "}
 												<Link to={`/appt/${future.apptid}`}>Edit</Link>
+											</button>
+										</td>
+										<td className="tableAppt_td">
+											<button
+												value={future.apptid}
+												className="appt_button"
+												onClick={DeleteAppt}
+											>
+												Delete
 											</button>
 										</td>
 									</tr>

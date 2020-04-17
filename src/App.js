@@ -74,7 +74,7 @@ class App extends Component {
 											{" "}
 											<LogOut />
 										</Link>
-										<div class="dropdown">
+										<div className="dropdown">
 											<button
 												className="btn btn-secondary dropdown-toggle"
 												type="button"

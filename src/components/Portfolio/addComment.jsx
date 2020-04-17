@@ -20,10 +20,7 @@ const Comment = props => {
 			const response = await fetch(
 				`http://localhost:3080/appt/getComments/${user_id}/${apptid}`
 			);
-			console.log(response);
 			const data = await response.json();
-			console.log("comments ", data);
-
 			setComments(data);
 		}
 	}, [user_id, apptid, trigger]);
@@ -42,9 +39,26 @@ const Comment = props => {
 			},
 			body: JSON.stringify(data)
 		});
-		console.log(response);
 		setTrigger(response);
 		e.target.reset();
+	};
+	const DeleteComm = async e => {
+		const CommentDelete = parseInt(e.target.value);
+
+		setComments(usercomments.filter(obj => obj.commentid !== CommentDelete));
+
+		const data = {};
+		data.commentid = CommentDelete;
+
+		const response = await fetch("http://localhost:3080/appt/DeleteComment", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		console.log(response);
 	};
 
 	return (
@@ -53,10 +67,19 @@ const Comment = props => {
 				<div className="col-sm-12 col-md-12 col-lg-12 DashBoard_CommentArea">
 					{usercomments.map(com => (
 						<>
-							<div>
-								{firstname}
-								&nbsp;
-								{lastname}: {com.usercomment}
+							<div key={com.commentid} className="DashBoard_CommentView">
+								<div>
+									{firstname}
+									&nbsp;
+									{lastname}: {com.usercomment}
+								</div>
+								<button
+									value={com.commentid}
+									className="appt_button"
+									onClick={DeleteComm}
+								>
+									Delete
+								</button>
 							</div>
 						</>
 					))}

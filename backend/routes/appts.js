@@ -111,4 +111,25 @@ router.get("/getComments/:user_id/:apptid", async (req, res) => {
 	res.json(formIn).status(200);
 });
 
+router.post("/DeleteAppt", async (req, res) => {
+	const { apptid } = req.body;
+	console.log("here", req.body);
+	const formInstance = new ApptModel(apptid, null, null);
+	const formIn = await formInstance.DeleteAppt();
+	const formTwo = await formInstance.DeleteApptFrom();
+
+	res.json(formTwo).status(200);
+
+	res.json(formIn).status(200);
+});
+
+router.post("/DeleteComment", async (req, res) => {
+	const { commentid } = req.body;
+	console.log("here", req.body);
+	const formInstance = new CommentModel(null, null, null, commentid);
+	const formIn = await formInstance.DeleteComment();
+
+	res.json(formIn).status(200);
+});
+
 module.exports = router;

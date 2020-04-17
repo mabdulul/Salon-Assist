@@ -127,6 +127,28 @@ class ApptModels {
 			return error.message;
 		}
 	}
+	async DeleteAppt() {
+		try {
+			const response = await db.one(
+				`Delete from commentstb
+				 WHERE apptid=${this.apptid};`
+			);
+			console.log(response);
+		} catch (error) {
+			return error.message;
+		}
+	}
+	async DeleteApptFrom() {
+		try {
+			const response = await db.one(
+				`Delete from appt
+				 WHERE apptid=${this.apptid};`
+			);
+			console.log(response);
+		} catch (error) {
+			return error.message;
+		}
+	}
 }
 
 module.exports = ApptModels;
