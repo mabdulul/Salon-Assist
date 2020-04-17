@@ -109,7 +109,9 @@ const ApptEdit = () => {
 								)}
 							</div>
 							<div className="DashBoard_divstBox   DashBoard_button">
-								<button type="submit">Update</button>
+								<button className="Comm__btn" type="submit">
+									Update
+								</button>
 							</div>
 						</div>
 					</form>

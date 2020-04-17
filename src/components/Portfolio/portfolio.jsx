@@ -191,7 +191,9 @@ const Portfolio = () => {
 							</div>
 							<div className="DashBoard_divstBox   DashBoard_button">
 								<label className="DashBoard_divst_label"></label>
-								<button type="submit">Save</button>
+								<button className="QuizForm__btn" type="submit">
+									Save
+								</button>
 							</div>
 						</div>
 					</form>

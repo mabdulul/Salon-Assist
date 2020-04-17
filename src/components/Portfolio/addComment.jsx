@@ -75,7 +75,7 @@ const Comment = props => {
 								</div>
 								<button
 									value={com.commentid}
-									className="appt_button"
+									className="Comm__btn"
 									onClick={DeleteComm}
 								>
 									Delete
@@ -100,7 +100,9 @@ const Comment = props => {
 								cols="50"
 								onClick={() => reset()}
 							></textarea>
-							<button type="submit">Add Comment</button>
+							<button className="Comm__btn" type="submit">
+								Add Comment
+							</button>
 						</form>
 					</div>
 				</div>
