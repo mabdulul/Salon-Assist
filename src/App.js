@@ -47,7 +47,7 @@ class App extends Component {
 				<Router>
 					<nav className="navbar navbar-expand-lg navbar-light  nav  ">
 						<Link className="navbar-brand navbar-color" to="/">
-							<h2 class="nav_logo">debonaire</h2>
+							<h2 className="nav_logo">debonaire</h2>
 						</Link>
 						<button
 							className="navbar-toggler"
@@ -70,8 +70,7 @@ class App extends Component {
 										<Link className="nav-item nav-link navset " to="/">
 											Home
 										</Link>
-										<Link className="nav-item nav-link navset ">
-											{" "}
+										<Link className="nav-item nav-link navset " to="">
 											<LogOut />
 										</Link>
 										<div className="dropdown">

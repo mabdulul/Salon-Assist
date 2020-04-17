@@ -66,7 +66,7 @@ const DashAppt = () => {
 			<div className="row">
 				<div className="col-sm-12 col-md-12 col-lg-12 tableBox">
 					<h5>Upcoming Appointments </h5>
-					<table class="table tableAppt">
+					<table className="table tableAppt">
 						<thead>
 							<tr className="tableAppt_tr">
 								<th className="tableAppt_th" scope="col">

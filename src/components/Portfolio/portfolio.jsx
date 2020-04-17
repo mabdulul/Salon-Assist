@@ -34,6 +34,7 @@ const Portfolio = () => {
 			);
 
 			const data = await response.json();
+			console.log("here here", data);
 			setHair(data.hairtype);
 			setlength(data.length_hair);
 			settypeofColor(data.boxdye_salon);
