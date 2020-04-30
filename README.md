@@ -16,7 +16,7 @@ I design everything to expected the homepage. The design of Salon-Assist was ins
 Creating the login for users
 
 ## Stretch Goals
-Create a dashboard for stylist 
+I would like to add a login for Stylist. The stylist would be able to view all upcoming appointments and add comments to their appointments.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
