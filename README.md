@@ -13,7 +13,7 @@ React, PostgreSQL, JavaScript, HTML, CSS, Bootstrap 4, Node, Express, Context AP
 I design everything to expected the homepage. The design of Salon-Assist was inspired by different salon website and the questionnaire was inspired by quizzes I found online. 
 
 ## Challenges
-Creating the login for users
+Creating the login for users.
 
 ## Stretch Goals
 I would like to add a login for Stylist. The stylist would be able to view all upcoming appointments and add comments to their appointments.
