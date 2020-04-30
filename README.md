@@ -1,6 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Salon-Assist 
+
+The goal of this project was to create an application that would allow customers of a salon to complete a questionnaire. Once they complete it, Stylist would have information about their clients. This application allows customers to create a login, complete a questionnaire, make appointments, and add comments to future appointments. The customers would also be able to edit the questionnaire and view future and past appointments.
+
+
+
+
 
 ### `npm start`
 
