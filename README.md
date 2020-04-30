@@ -9,10 +9,10 @@ You can also find a demo https://www.youtube.com/watch?v=EylWbippy9I
 ## Technologies Used
 React, PostgreSQL, JavaScript, HTML, CSS, Bootstrap 4, Node, Express, Context API, Momentjs.
 
-# Design 
+## Design 
 I design everything to expected the homepage. The design of Salon-Assist was inspired by different salon website and the questionnaire was inspired by quizzes I found online. 
 
-# Challenges
+## Challenges
 Creating the login for users
 
 ## Stretch Goals
